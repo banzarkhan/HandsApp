@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		54C940BF29AA36DE00AF67BC /* HadsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C940BE29AA36DE00AF67BC /* HadsAppApp.swift */; };
+		54C940BF29AA36DE00AF67BC /* HandsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C940BE29AA36DE00AF67BC /* HandsAppApp.swift */; };
 		54C940C129AA36DE00AF67BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C940C029AA36DE00AF67BC /* ContentView.swift */; };
 		54C940C329AA36DF00AF67BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54C940C229AA36DF00AF67BC /* Assets.xcassets */; };
 		54C940C629AA36DF00AF67BC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54C940C529AA36DF00AF67BC /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		54C940BB29AA36DE00AF67BC /* HadsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HadsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		54C940BE29AA36DE00AF67BC /* HadsAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HadsAppApp.swift; sourceTree = "<group>"; };
+		54C940BB29AA36DE00AF67BC /* HandsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		54C940BE29AA36DE00AF67BC /* HandsAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandsAppApp.swift; sourceTree = "<group>"; };
 		54C940C029AA36DE00AF67BC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		54C940C229AA36DF00AF67BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54C940C529AA36DF00AF67BC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -35,7 +35,7 @@
 		54C940B229AA36DE00AF67BC = {
 			isa = PBXGroup;
 			children = (
-				54C940BD29AA36DE00AF67BC /* HadsApp */,
+				54C940BD29AA36DE00AF67BC /* HandsApp */,
 				54C940BC29AA36DE00AF67BC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,20 +43,20 @@
 		54C940BC29AA36DE00AF67BC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				54C940BB29AA36DE00AF67BC /* HadsApp.app */,
+				54C940BB29AA36DE00AF67BC /* HandsApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		54C940BD29AA36DE00AF67BC /* HadsApp */ = {
+		54C940BD29AA36DE00AF67BC /* HandsApp */ = {
 			isa = PBXGroup;
 			children = (
-				54C940BE29AA36DE00AF67BC /* HadsAppApp.swift */,
+				54C940BE29AA36DE00AF67BC /* HandsAppApp.swift */,
 				54C940C029AA36DE00AF67BC /* ContentView.swift */,
 				54C940C229AA36DF00AF67BC /* Assets.xcassets */,
 				54C940C429AA36DF00AF67BC /* Preview Content */,
 			);
-			path = HadsApp;
+			path = HandsApp;
 			sourceTree = "<group>";
 		};
 		54C940C429AA36DF00AF67BC /* Preview Content */ = {
@@ -70,9 +70,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		54C940BA29AA36DE00AF67BC /* HadsApp */ = {
+		54C940BA29AA36DE00AF67BC /* HandsApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 54C940C929AA36DF00AF67BC /* Build configuration list for PBXNativeTarget "HadsApp" */;
+			buildConfigurationList = 54C940C929AA36DF00AF67BC /* Build configuration list for PBXNativeTarget "HandsApp" */;
 			buildPhases = (
 				54C940B729AA36DE00AF67BC /* Sources */,
 				54C940B829AA36DE00AF67BC /* Frameworks */,
@@ -82,9 +82,9 @@
 			);
 			dependencies = (
 			);
-			name = HadsApp;
+			name = HandsApp;
 			productName = HadsApp;
-			productReference = 54C940BB29AA36DE00AF67BC /* HadsApp.app */;
+			productReference = 54C940BB29AA36DE00AF67BC /* HandsApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +102,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 54C940B629AA36DE00AF67BC /* Build configuration list for PBXProject "HadsApp" */;
+			buildConfigurationList = 54C940B629AA36DE00AF67BC /* Build configuration list for PBXProject "HandsApp" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +115,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				54C940BA29AA36DE00AF67BC /* HadsApp */,
+				54C940BA29AA36DE00AF67BC /* HandsApp */,
 			);
 		};
 /* End PBXProject section */
@@ -138,7 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54C940C129AA36DE00AF67BC /* ContentView.swift in Sources */,
-				54C940BF29AA36DE00AF67BC /* HadsAppApp.swift in Sources */,
+				54C940BF29AA36DE00AF67BC /* HandsAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,7 +320,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		54C940B629AA36DE00AF67BC /* Build configuration list for PBXProject "HadsApp" */ = {
+		54C940B629AA36DE00AF67BC /* Build configuration list for PBXProject "HandsApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				54C940C729AA36DF00AF67BC /* Debug */,
@@ -329,7 +329,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		54C940C929AA36DF00AF67BC /* Build configuration list for PBXNativeTarget "HadsApp" */ = {
+		54C940C929AA36DF00AF67BC /* Build configuration list for PBXNativeTarget "HandsApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				54C940CA29AA36DF00AF67BC /* Debug */,
