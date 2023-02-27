@@ -7,16 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		54C940BF29AA36DE00AF67BC /* HandsAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C940BE29AA36DE00AF67BC /* HandsAppApp.swift */; };
-		54C940C129AA36DE00AF67BC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C940C029AA36DE00AF67BC /* ContentView.swift */; };
+		5476644229AD0B2900635CDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5476644129AD0B2900635CDC /* AppDelegate.swift */; };
+		5476644429AD0C4B00635CDC /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5476644329AD0C4B00635CDC /* CameraViewController.swift */; };
+		5476644629AD0C8900635CDC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5476644529AD0C8900635CDC /* SceneDelegate.swift */; };
+		5476644829AD0D4E00635CDC /* MyHandPoseClassifier 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5476644729AD0D4E00635CDC /* MyHandPoseClassifier 1.mlmodel */; };
+		547FED9F29AD144100EBDC13 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 547FED9E29AD144100EBDC13 /* SnapKit */; };
 		54C940C329AA36DF00AF67BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54C940C229AA36DF00AF67BC /* Assets.xcassets */; };
 		54C940C629AA36DF00AF67BC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54C940C529AA36DF00AF67BC /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5476644129AD0B2900635CDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5476644329AD0C4B00635CDC /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		5476644529AD0C8900635CDC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		5476644729AD0D4E00635CDC /* MyHandPoseClassifier 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "MyHandPoseClassifier 1.mlmodel"; sourceTree = "<group>"; };
 		54C940BB29AA36DE00AF67BC /* HandsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		54C940BE29AA36DE00AF67BC /* HandsAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandsAppApp.swift; sourceTree = "<group>"; };
-		54C940C029AA36DE00AF67BC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		54C940C229AA36DF00AF67BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54C940C529AA36DF00AF67BC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -26,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				547FED9F29AD144100EBDC13 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,8 +57,10 @@
 		54C940BD29AA36DE00AF67BC /* HandsApp */ = {
 			isa = PBXGroup;
 			children = (
-				54C940BE29AA36DE00AF67BC /* HandsAppApp.swift */,
-				54C940C029AA36DE00AF67BC /* ContentView.swift */,
+				5476644129AD0B2900635CDC /* AppDelegate.swift */,
+				5476644329AD0C4B00635CDC /* CameraViewController.swift */,
+				5476644529AD0C8900635CDC /* SceneDelegate.swift */,
+				5476644729AD0D4E00635CDC /* MyHandPoseClassifier 1.mlmodel */,
 				54C940C229AA36DF00AF67BC /* Assets.xcassets */,
 				54C940C429AA36DF00AF67BC /* Preview Content */,
 			);
@@ -83,6 +91,9 @@
 			dependencies = (
 			);
 			name = HandsApp;
+			packageProductDependencies = (
+				547FED9E29AD144100EBDC13 /* SnapKit */,
+			);
 			productName = HadsApp;
 			productReference = 54C940BB29AA36DE00AF67BC /* HandsApp.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +122,9 @@
 				Base,
 			);
 			mainGroup = 54C940B229AA36DE00AF67BC;
+			packageReferences = (
+				547FED9D29AD144100EBDC13 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 54C940BC29AA36DE00AF67BC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +151,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54C940C129AA36DE00AF67BC /* ContentView.swift in Sources */,
-				54C940BF29AA36DE00AF67BC /* HandsAppApp.swift in Sources */,
+				5476644829AD0D4E00635CDC /* MyHandPoseClassifier 1.mlmodel in Sources */,
+				5476644629AD0C8900635CDC /* SceneDelegate.swift in Sources */,
+				5476644229AD0B2900635CDC /* AppDelegate.swift in Sources */,
+				5476644429AD0C4B00635CDC /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +282,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"HadsApp/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"HandsApp/Preview Content\"";
 				DEVELOPMENT_TEAM = LU4XHFZPKM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -295,7 +311,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"HadsApp/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"HandsApp/Preview Content\"";
 				DEVELOPMENT_TEAM = LU4XHFZPKM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -339,6 +355,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		547FED9D29AD144100EBDC13 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		547FED9E29AD144100EBDC13 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 547FED9D29AD144100EBDC13 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 54C940B329AA36DE00AF67BC /* Project object */;
 }
