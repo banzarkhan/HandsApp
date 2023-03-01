@@ -7,6 +7,7 @@
 
 import UIKit
 import Foundation
+import SwiftUI
 import AVFoundation
 import Vision
 import Photos
@@ -21,7 +22,6 @@ class CameraViewController: UIViewController {
     private var videoDeviceInput: AVCaptureDeviceInput!
 
     private let handPoseRequest = VNDetectHumanHandPoseRequest()
-//    private let handGestureProcessor = HandGestureProcessor()
     private let recordButton = UIButton()
     private var isRecording = false
     
@@ -38,7 +38,7 @@ class CameraViewController: UIViewController {
         super.viewDidLoad()
         prepareCaptureSession()
         prepareCaptureUI()
-        setupRecordButton()
+//        setupRecordButton()
 
         prepareTimerView()
 //        prepareBottomControls()
@@ -78,7 +78,7 @@ class CameraViewController: UIViewController {
         fatalError("Could not create video device input: \(error.localizedDescription)")
         
         
-//        // Add audio input
+        // Add audio input
 //        guard let audioDevice = AVCaptureDevice.default(for: .audio) else {
 //            fatalError("Could not get audio device")
 //        }
@@ -94,12 +94,12 @@ class CameraViewController: UIViewController {
 //        }
         
         // Add video output
-        if captureSession.canAddOutput(movieOutput) {
-            captureSession.addOutput(movieOutput)
-            addAudioInput()
-        }
-        
-        captureSession.commitConfiguration()
+//        if captureSession.canAddOutput(movieOutput) {
+//            captureSession.addOutput(movieOutput)
+//            addAudioInput()
+//        }
+//
+//        captureSession.commitConfiguration()
 
     }
         
@@ -117,29 +117,29 @@ class CameraViewController: UIViewController {
         
         self.videoPreviewLayer = videoPreviewLayer
     }
-    private func setupRecordButton() {
-        recordButton.backgroundColor = .red
-        recordButton.addTarget(self, action: #selector(recordButtonTapped), for: .touchUpInside)
-        
-        view.addSubview(recordButton)
-        
-        recordButton.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottomMargin).offset(-16)
-            make.width.height.equalTo(80)
-        }
-    }
-    @objc private func recordButtonTapped() {
-        if !isRecording {
-            startRecording()
-            isRecording = true
-            recordButton.backgroundColor = .green
-        } else {
-            stopRecording()
-            isRecording = false
-            recordButton.backgroundColor = .red
-        }
-    }
+//    private func setupRecordButton() {
+//        recordButton.backgroundColor = .red
+//        recordButton.addTarget(self, action: #selector(recordButtonTapped), for: .touchUpInside)
+//
+//        view.addSubview(recordButton)
+//
+//        recordButton.snp.makeConstraints { make in
+//            make.centerX.equalToSuperview()
+//            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottomMargin).offset(-16)
+//            make.width.height.equalTo(80)
+//        }
+//    }
+//    @objc private func recordButtonTapped() {
+//        if !isRecording {
+//            startRecording()
+//            isRecording = true
+//            recordButton.backgroundColor = .green
+//        } else {
+//            stopRecording()
+//            isRecording = false
+//            recordButton.backgroundColor = .red
+//        }
+//    }
     func addAudioInput() {
         let audioSession = AVAudioSession.sharedInstance()
         do {
@@ -192,7 +192,7 @@ class CameraViewController: UIViewController {
     
 
     
-    private func captureImage() {
+    func captureImage() {
         guard let photoOutput = captureSession?.outputs.first(where: { $0 is AVCapturePhotoOutput }) as? AVCapturePhotoOutput else { return }
         let settings = AVCapturePhotoSettings()
         photoOutput.capturePhoto(with: settings, delegate: self)
@@ -256,24 +256,25 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                 DispatchQueue.main.async { [self] in
                     switch label {
                     case "okay":
-                        if isTimerRunning == false {
+                        if isTimerRunning == false, isRecording == false {
                             runTimer(seconds: 3, completion: {
                                 self.captureImage()
                             })
                         }
                     case "peace":
-                        if isTimerRunning == false {
+                        if isTimerRunning == false, isRecording == false {
                             runTimer(seconds: 3, completion: {
                                 print("pinched to start vid")
                                 self.startRecording()
+                                self.isRecording.toggle()
                             })
                         }
                     case "fist":
-                        if isTimerRunning == false {
+                        if isTimerRunning == false, isRecording == true {
                             runTimer(seconds: 3, completion: {
                                 print("pinched to stop vid")
                                 self.stopRecording()
-                                
+                                self.isRecording = false
                             })
                         }
                     default : break
@@ -284,89 +285,6 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             print("Prediction error")
         }
     }
-    
-//    private func processPoints(thumbTipPoint: VNRecognizedPoint, indexTipPoint: VNRecognizedPoint, middleDIPPoint: VNRecognizedPoint, ringTipPoint: VNRecognizedPoint, littleDIPPoint: VNRecognizedPoint) {
-//
-//        // Ignore low confidence points.
-//        guard thumbTipPoint.confidence > 0.9 && indexTipPoint.confidence > 0.9 && middleDIPPoint.confidence > 0.9 && ringTipPoint.confidence > 0.87 && littleDIPPoint.confidence > 0.9
-//        else {
-//            return
-//        }
-//
-//        guard let thumbTipUIKitPoint = videoPreviewLayer?.layerPointConverted(fromCaptureDevicePoint: thumbTipPoint.toAVFoundationPoint) else {
-//            return
-//        }
-//
-//        guard let indexTipUIKitPoint = videoPreviewLayer?.layerPointConverted(fromCaptureDevicePoint: indexTipPoint.toAVFoundationPoint) else {
-//            return
-//        }
-//
-//        guard let middleDIPUIKitPoint = videoPreviewLayer?.layerPointConverted(fromCaptureDevicePoint: middleDIPPoint.toAVFoundationPoint) else {
-//            return
-//        }
-//
-//        guard let ringTipUIKitPoint = videoPreviewLayer?.layerPointConverted(fromCaptureDevicePoint: ringTipPoint.toAVFoundationPoint) else {
-//            return
-//        }
-//
-//        guard let littleDIPUIKitPoint = videoPreviewLayer?.layerPointConverted(fromCaptureDevicePoint: littleDIPPoint.toAVFoundationPoint) else {
-//            return
-//        }
-//
-//        let state = handGestureProcessor.getHandState(thumbTip: thumbTipUIKitPoint, indexTip: indexTipUIKitPoint, middleDIP: middleDIPUIKitPoint, ringTip: ringTipUIKitPoint, littleDIP: littleDIPUIKitPoint)
-//
-//        switch state {
-//        case .pinchedPhoto:
-//            if isTimerRunning == false {
-//                runTimer(seconds: 3, completion: {
-//                    self.captureImage()
-//                })
-//            }
-//        case .pinchedVidRec:
-//            break
-//        case .pinchedVidStop:
-//            break
-//        case .unknown:
-//            break
-//        }
-//
-//        let startVid = handGestureProcessor.getHandState(thumbTip: thumbTipUIKitPoint, indexTip: indexTipUIKitPoint, middleDIP: middleDIPUIKitPoint, ringTip: ringTipUIKitPoint, littleDIP: littleDIPUIKitPoint)
-//
-//        switch startVid {
-//        case .pinchedVidRec:
-//            if isTimerRunning == false {
-//                runTimer(seconds: 3, completion: {
-//                    print("pinched to start vid")
-//                        self.startRecording()
-//
-//                })
-//            }
-//        case .unknown:
-//            break
-//        case .pinchedPhoto:
-//            break
-//        case .pinchedVidStop:
-//            break
-//        }
-//        let stopVid = handGestureProcessor.getHandState(thumbTip: thumbTipUIKitPoint, indexTip: indexTipUIKitPoint, middleDIP: middleDIPUIKitPoint, ringTip: ringTipUIKitPoint, littleDIP: littleDIPUIKitPoint)
-//
-//        switch stopVid {
-//        case .pinchedVidStop:
-//            if isTimerRunning == false {
-//                runTimer(seconds: 3, completion: {
-//                    print("pinched to stop vid")
-//                    self.stopRecording()
-//
-//                })
-//            }
-//        case .unknown:
-//            break
-//        case .pinchedPhoto:
-//            break
-//        case .pinchedVidRec:
-//            break
-//        }
-//    }
 }
 
 extension CameraViewController: AVCapturePhotoCaptureDelegate {
@@ -405,4 +323,20 @@ extension CameraViewController: AVCaptureFileOutputRecordingDelegate {
             }
         }
     }
+}
+
+struct HostedViewController: UIViewControllerRepresentable {
+    
+    @Binding var isCallingFunc: Bool
+    
+    func makeUIViewController(context: Context) -> CameraViewController {
+        return CameraViewController()
+        }
+
+        func updateUIViewController(_ uiViewController: CameraViewController, context: Context) {
+            if isCallingFunc {
+                uiViewController.captureImage()
+                        isCallingFunc = false
+                    }
+        }
 }

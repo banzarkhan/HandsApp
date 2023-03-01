@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5476644229AD0B2900635CDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5476644129AD0B2900635CDC /* AppDelegate.swift */; };
+		544AF11129AF653D00757C7E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544AF11029AF653D00757C7E /* ContentView.swift */; };
+		544AF11329AF674D00757C7E /* HandsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544AF11229AF674D00757C7E /* HandsApp.swift */; };
+		544AF11529AF715A00757C7E /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544AF11429AF715A00757C7E /* BottomView.swift */; };
 		5476644429AD0C4B00635CDC /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5476644329AD0C4B00635CDC /* CameraViewController.swift */; };
-		5476644629AD0C8900635CDC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5476644529AD0C8900635CDC /* SceneDelegate.swift */; };
 		5476644829AD0D4E00635CDC /* MyHandPoseClassifier 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5476644729AD0D4E00635CDC /* MyHandPoseClassifier 1.mlmodel */; };
 		547FED9F29AD144100EBDC13 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 547FED9E29AD144100EBDC13 /* SnapKit */; };
 		54C940C329AA36DF00AF67BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54C940C229AA36DF00AF67BC /* Assets.xcassets */; };
@@ -17,10 +18,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5476644129AD0B2900635CDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		544AF11029AF653D00757C7E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		544AF11229AF674D00757C7E /* HandsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandsApp.swift; sourceTree = "<group>"; };
+		544AF11429AF715A00757C7E /* BottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
 		5476644329AD0C4B00635CDC /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		5476644529AD0C8900635CDC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5476644729AD0D4E00635CDC /* MyHandPoseClassifier 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "MyHandPoseClassifier 1.mlmodel"; sourceTree = "<group>"; };
+		547FEDA029AD1AC700EBDC13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		54C940BB29AA36DE00AF67BC /* HandsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54C940C229AA36DF00AF67BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54C940C529AA36DF00AF67BC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -57,9 +60,11 @@
 		54C940BD29AA36DE00AF67BC /* HandsApp */ = {
 			isa = PBXGroup;
 			children = (
-				5476644129AD0B2900635CDC /* AppDelegate.swift */,
+				544AF11229AF674D00757C7E /* HandsApp.swift */,
+				547FEDA029AD1AC700EBDC13 /* Info.plist */,
 				5476644329AD0C4B00635CDC /* CameraViewController.swift */,
-				5476644529AD0C8900635CDC /* SceneDelegate.swift */,
+				544AF11029AF653D00757C7E /* ContentView.swift */,
+				544AF11429AF715A00757C7E /* BottomView.swift */,
 				5476644729AD0D4E00635CDC /* MyHandPoseClassifier 1.mlmodel */,
 				54C940C229AA36DF00AF67BC /* Assets.xcassets */,
 				54C940C429AA36DF00AF67BC /* Preview Content */,
@@ -152,8 +157,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5476644829AD0D4E00635CDC /* MyHandPoseClassifier 1.mlmodel in Sources */,
-				5476644629AD0C8900635CDC /* SceneDelegate.swift in Sources */,
-				5476644229AD0B2900635CDC /* AppDelegate.swift in Sources */,
+				544AF11129AF653D00757C7E /* ContentView.swift in Sources */,
+				544AF11529AF715A00757C7E /* BottomView.swift in Sources */,
+				544AF11329AF674D00757C7E /* HandsApp.swift in Sources */,
 				5476644429AD0C4B00635CDC /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,11 +292,16 @@
 				DEVELOPMENT_TEAM = LU4XHFZPKM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HandsApp/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need Camera access in order to launch the app!";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need Microphone access in order to record videos!";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need Photos access in order to save media!";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -298,9 +309,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ariuna.HadsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -315,11 +329,16 @@
 				DEVELOPMENT_TEAM = LU4XHFZPKM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HandsApp/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need Camera access in order to launch the app!";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need Microphone access in order to record videos!";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need Photos access in order to save media!";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -327,9 +346,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ariuna.HadsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
