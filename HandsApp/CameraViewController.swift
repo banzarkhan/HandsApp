@@ -39,7 +39,7 @@ class CameraViewController: UIViewController {
         prepareCaptureSession()
         prepareCaptureUI()
 //        setupRecordButton()
-
+        addAudioInput()
         prepareTimerView()
 //        prepareBottomControls()
         
@@ -58,8 +58,6 @@ class CameraViewController: UIViewController {
         let videoOutput = AVCaptureVideoDataOutput()
         videoOutput.setSampleBufferDelegate(self, queue: .main)
         captureSession.addOutput(videoOutput)
-        
-    
 
         let photoOutput = AVCapturePhotoOutput()
         captureSession.addOutput(photoOutput)
@@ -327,16 +325,15 @@ extension CameraViewController: AVCaptureFileOutputRecordingDelegate {
 
 struct HostedViewController: UIViewControllerRepresentable {
     
-    @Binding var isCallingFunc: Bool
+    @ObservedObject var cameraVM: CameraViewModel
     
     func makeUIViewController(context: Context) -> CameraViewController {
         return CameraViewController()
         }
 
         func updateUIViewController(_ uiViewController: CameraViewController, context: Context) {
-            if isCallingFunc {
+            if cameraVM.capturePhoto {
                 uiViewController.captureImage()
-                        isCallingFunc = false
                     }
         }
 }
