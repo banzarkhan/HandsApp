@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "2A803B9F-A471-45EB-B6D0-6D14C21F66A0"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "35DB7982-B71F-4631-AFE5-1DD152777FD6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HandsApp/CameraViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "391"
+            endingLineNumber = "391"
+            landmarkName = "fileOutput(_:didFinishRecordingTo:from:error:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "35DB7982-B71F-4631-AFE5-1DD152777FD6 - 647c8792b8cd942"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "HandsApp.CameraViewController.fileOutput(_: __C.AVCaptureFileOutput, didFinishRecordingTo: Foundation.URL, from: Swift.Array&lt;__C.AVCaptureConnection&gt;, error: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
+                  moduleName = "HandsApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ilarias/Desktop/academy/HadsApp/HandsApp/CameraViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "391"
+                  endingLineNumber = "391"
+                  offsetFromSymbolStart = "1036">
+               </Location>
+               <Location
+                  uuid = "35DB7982-B71F-4631-AFE5-1DD152777FD6 - e17997e6d15d3f91"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.PHAuthorizationStatus) -&gt; () in HandsApp.CameraViewController.fileOutput(_: __C.AVCaptureFileOutput, didFinishRecordingTo: Foundation.URL, from: Swift.Array&lt;__C.AVCaptureConnection&gt;, error: Swift.Optional&lt;Swift.Error&gt;) -&gt; ()"
+                  moduleName = "HandsApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ilarias/Desktop/academy/HadsApp/HandsApp/CameraViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "392"
+                  endingLineNumber = "392"
+                  offsetFromSymbolStart = "160">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
