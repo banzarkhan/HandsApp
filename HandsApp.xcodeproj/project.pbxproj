@@ -9,7 +9,14 @@
 /* Begin PBXBuildFile section */
 		544AF11129AF653D00757C7E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544AF11029AF653D00757C7E /* ContentView.swift */; };
 		544AF11329AF674D00757C7E /* HandsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544AF11229AF674D00757C7E /* HandsApp.swift */; };
-		544AF11529AF715A00757C7E /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544AF11429AF715A00757C7E /* BottomView.swift */; };
+		544E4E9729B0E0F00063EB35 /* CaptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544E4E9629B0E0F00063EB35 /* CaptionView.swift */; };
+		544E4E9929B0E1470063EB35 /* NextButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544E4E9829B0E1470063EB35 /* NextButtonView.swift */; };
+		544E4E9B29B0E30B0063EB35 /* SplashPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544E4E9A29B0E30B0063EB35 /* SplashPage.swift */; };
+		544E4E9D29B0E3940063EB35 /* GestureTutorial1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544E4E9C29B0E3940063EB35 /* GestureTutorial1.swift */; };
+		544E4E9F29B0E3B90063EB35 /* GestureTutorial2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544E4E9E29B0E3B90063EB35 /* GestureTutorial2.swift */; };
+		544E4EA129B0E4FA0063EB35 /* GestureTutorial3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544E4EA029B0E4FA0063EB35 /* GestureTutorial3.swift */; };
+		544E4EA329B0E51E0063EB35 /* ThumpPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544E4EA229B0E51E0063EB35 /* ThumpPageView.swift */; };
+		544E4EA529B0E5DA0063EB35 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544E4EA429B0E5DA0063EB35 /* OnboardingView.swift */; };
 		5476644429AD0C4B00635CDC /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5476644329AD0C4B00635CDC /* CameraViewController.swift */; };
 		547FED9F29AD144100EBDC13 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 547FED9E29AD144100EBDC13 /* SnapKit */; };
 		548DA07A29AFB1950091DD67 /* GesturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548DA07929AFB1950091DD67 /* GesturesView.swift */; };
@@ -23,7 +30,14 @@
 /* Begin PBXFileReference section */
 		544AF11029AF653D00757C7E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		544AF11229AF674D00757C7E /* HandsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandsApp.swift; sourceTree = "<group>"; };
-		544AF11429AF715A00757C7E /* BottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
+		544E4E9629B0E0F00063EB35 /* CaptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionView.swift; sourceTree = "<group>"; };
+		544E4E9829B0E1470063EB35 /* NextButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButtonView.swift; sourceTree = "<group>"; };
+		544E4E9A29B0E30B0063EB35 /* SplashPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPage.swift; sourceTree = "<group>"; };
+		544E4E9C29B0E3940063EB35 /* GestureTutorial1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureTutorial1.swift; sourceTree = "<group>"; };
+		544E4E9E29B0E3B90063EB35 /* GestureTutorial2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureTutorial2.swift; sourceTree = "<group>"; };
+		544E4EA029B0E4FA0063EB35 /* GestureTutorial3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureTutorial3.swift; sourceTree = "<group>"; };
+		544E4EA229B0E51E0063EB35 /* ThumpPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumpPageView.swift; sourceTree = "<group>"; };
+		544E4EA429B0E5DA0063EB35 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		5476644329AD0C4B00635CDC /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		547FEDA029AD1AC700EBDC13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		548DA07929AFB1950091DD67 /* GesturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GesturesView.swift; sourceTree = "<group>"; };
@@ -47,6 +61,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		544E4EA629B0E73B0063EB35 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				544E4E9629B0E0F00063EB35 /* CaptionView.swift */,
+				544E4E9829B0E1470063EB35 /* NextButtonView.swift */,
+				544E4E9A29B0E30B0063EB35 /* SplashPage.swift */,
+				544E4E9C29B0E3940063EB35 /* GestureTutorial1.swift */,
+				544E4E9E29B0E3B90063EB35 /* GestureTutorial2.swift */,
+				544E4EA029B0E4FA0063EB35 /* GestureTutorial3.swift */,
+				544E4EA229B0E51E0063EB35 /* ThumpPageView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		54B61AAE29B0DF2200B75B0E /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				544E4EA629B0E73B0063EB35 /* Helpers */,
+				544E4EA429B0E5DA0063EB35 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		54C940B229AA36DE00AF67BC = {
 			isa = PBXGroup;
 			children = (
@@ -66,12 +103,12 @@
 		54C940BD29AA36DE00AF67BC /* HandsApp */ = {
 			isa = PBXGroup;
 			children = (
+				54B61AAE29B0DF2200B75B0E /* Onboarding */,
 				544AF11229AF674D00757C7E /* HandsApp.swift */,
 				547FEDA029AD1AC700EBDC13 /* Info.plist */,
 				5476644329AD0C4B00635CDC /* CameraViewController.swift */,
 				544AF11029AF653D00757C7E /* ContentView.swift */,
 				548DA07D29AFB79E0091DD67 /* CameraView.swift */,
-				544AF11429AF715A00757C7E /* BottomView.swift */,
 				548DA07929AFB1950091DD67 /* GesturesView.swift */,
 				548DA07F29AFBC790091DD67 /* MyHandPoseClassifier 1.mlmodel */,
 				54C940C229AA36DF00AF67BC /* Assets.xcassets */,
@@ -165,13 +202,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				544E4E9929B0E1470063EB35 /* NextButtonView.swift in Sources */,
 				548DA07A29AFB1950091DD67 /* GesturesView.swift in Sources */,
+				544E4EA129B0E4FA0063EB35 /* GestureTutorial3.swift in Sources */,
+				544E4EA529B0E5DA0063EB35 /* OnboardingView.swift in Sources */,
 				544AF11129AF653D00757C7E /* ContentView.swift in Sources */,
-				544AF11529AF715A00757C7E /* BottomView.swift in Sources */,
 				548DA07C29AFB4CA0091DD67 /* CameraViewModel.swift in Sources */,
 				548DA08029AFBC790091DD67 /* MyHandPoseClassifier 1.mlmodel in Sources */,
 				544AF11329AF674D00757C7E /* HandsApp.swift in Sources */,
+				544E4E9F29B0E3B90063EB35 /* GestureTutorial2.swift in Sources */,
+				544E4E9729B0E0F00063EB35 /* CaptionView.swift in Sources */,
+				544E4E9B29B0E30B0063EB35 /* SplashPage.swift in Sources */,
+				544E4E9D29B0E3940063EB35 /* GestureTutorial1.swift in Sources */,
 				5476644429AD0C4B00635CDC /* CameraViewController.swift in Sources */,
+				544E4EA329B0E51E0063EB35 /* ThumpPageView.swift in Sources */,
 				548DA07E29AFB79E0091DD67 /* CameraView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
