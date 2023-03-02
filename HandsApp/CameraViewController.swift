@@ -45,6 +45,11 @@ class CameraViewController: UIViewController {
         
         handPoseRequest.maximumHandCount = 1
     }
+    
+    deinit {
+        captureSession?.stopRunning()
+        captureSession = nil
+    }
 
     private func prepareCaptureSession() {
         let captureSession = AVCaptureSession()
@@ -103,7 +108,10 @@ class CameraViewController: UIViewController {
         
         self.captureSession?.sessionPreset = .high
         self.captureSession = captureSession
-        self.captureSession?.startRunning()
+        captureSession.addOutput(movieOutput)
+        DispatchQueue.global(qos: .userInteractive).async { [weak self] in
+            self?.captureSession?.startRunning()
+        }
     }
     
     private func prepareCaptureUI() {
@@ -158,8 +166,7 @@ class CameraViewController: UIViewController {
        if !movieOutput.isRecording {
            let outputPath = NSTemporaryDirectory() + "output.mov"
            let outputFileURL = URL(fileURLWithPath: outputPath)
-     
-           self.captureSession?.addOutput(movieOutput)
+           
            movieOutput.startRecording(to: outputFileURL, recordingDelegate: self)
            
        }
@@ -255,21 +262,25 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                     switch label {
                     case "okay":
                         if isTimerRunning == false, isRecording == false {
-                            runTimer(seconds: 3, completion: {
+                            runTimer(seconds: 3, completion: { [weak self] in
+                                guard let self else { return }
                                 self.captureImage()
                             })
                         }
                     case "peace":
                         if isTimerRunning == false, isRecording == false {
-                            runTimer(seconds: 3, completion: {
+                            runTimer(seconds: 3, completion: { [weak self] in
+                                guard let self else { return }
+                                
                                 print("pinched to start vid")
                                 self.startRecording()
                                 self.isRecording.toggle()
                             })
                         }
                     case "fist":
-                        if isTimerRunning == false, isRecording == true {
-                            runTimer(seconds: 3, completion: {
+                        if isTimerRunning == false, isRecording == true { 
+                            runTimer(seconds: 3, completion: { [weak self] in
+                                guard let self else { return }
                                 print("pinched to stop vid")
                                 self.stopRecording()
                                 self.isRecording = false
