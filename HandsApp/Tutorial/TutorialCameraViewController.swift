@@ -1,8 +1,8 @@
 //
-//  CameraViewController.swift
+//  TutorialCameraViewController.swift
 //  HandsApp
 //
-//  Created by Ariuna Banzarkhanova on 27/02/23.
+//  Created by Ariuna Banzarkhanova on 02/03/23.
 //
 
 import UIKit
@@ -13,7 +13,7 @@ import Vision
 import Photos
 import SnapKit
 
-class CameraViewController: UIViewController {
+class TutorialCameraViewController: UIViewController {
     
     private var captureSession: AVCaptureSession?
     private var videoPreviewLayer: AVCaptureVideoPreviewLayer?
@@ -25,21 +25,32 @@ class CameraViewController: UIViewController {
     private let recordButton = UIButton()
     private var isRecording = false
     
+    let tutorialVM: TutorialCameraViewModel
+    
+    init(tutorialVM: TutorialCameraViewModel){
+        self.tutorialVM = tutorialVM
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     var frameCounter = 0
     let handPosePredictionInterval = 30
     
-    let model = try? HandPoseClassifier_1(configuration: MLModelConfiguration())
+    let model = try? MyHandPoseClassifier_1(configuration: MLModelConfiguration())
     
-    private weak var timerLabel: UILabel?
+//    private weak var timerLabel: UILabel?
     
-    private var isTimerRunning = false
+//    private var isTimerRunning = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareCaptureSession()
         prepareCaptureUI()
-        addAudioInput()
-        prepareTimerView()
+//        addAudioInput()
+//        prepareTimerView()
         
         handPoseRequest.maximumHandCount = 1
     }
@@ -96,79 +107,79 @@ class CameraViewController: UIViewController {
         self.videoPreviewLayer = videoPreviewLayer
     }
     
-    func addAudioInput() {
-        let audioSession = AVAudioSession.sharedInstance()
-        do {
-            try audioSession.setCategory(.playAndRecord, mode: .default)
-            try audioSession.setActive(true, options: .init())
-            let audioDevice = AVCaptureDevice.default(for: AVMediaType.audio)!
-            let audioInput = try AVCaptureDeviceInput(device: audioDevice)
-            if ((captureSession?.canAddInput(audioInput)) != nil) {
-                captureSession!.addInput(audioInput)
-            }
-        } catch {
-            print("Error setting up audio input: \(error.localizedDescription)")
-        }
-    }
+//    func addAudioInput() {
+//        let audioSession = AVAudioSession.sharedInstance()
+//        do {
+//            try audioSession.setCategory(.playAndRecord, mode: .default)
+//            try audioSession.setActive(true, options: .init())
+//            let audioDevice = AVCaptureDevice.default(for: AVMediaType.audio)!
+//            let audioInput = try AVCaptureDeviceInput(device: audioDevice)
+//            if ((captureSession?.canAddInput(audioInput)) != nil) {
+//                captureSession!.addInput(audioInput)
+//            }
+//        } catch {
+//            print("Error setting up audio input: \(error.localizedDescription)")
+//        }
+//    }
     
     
-    func startRecording() {
-        if !movieOutput.isRecording {
-            let outputPath = NSTemporaryDirectory() + "output.mov"
-            let outputFileURL = URL(fileURLWithPath: outputPath)
-            
-            movieOutput.startRecording(to: outputFileURL, recordingDelegate: self)
-            
-        }
-    }
-    func stopRecording() {
-        if movieOutput.isRecording {
-            movieOutput.stopRecording()
-        }
-    }
+//    func startRecording() {
+//        if !movieOutput.isRecording {
+//            let outputPath = NSTemporaryDirectory() + "output.mov"
+//            let outputFileURL = URL(fileURLWithPath: outputPath)
+//
+//            movieOutput.startRecording(to: outputFileURL, recordingDelegate: self)
+//
+//        }
+//    }
+//    func stopRecording() {
+//        if movieOutput.isRecording {
+//            movieOutput.stopRecording()
+//        }
+//    }
     
-    private func prepareTimerView() {
-        let timerLabel = UILabel()
-        timerLabel.textAlignment = .center
-        timerLabel.font = UIFont.systemFont(ofSize: 300)
-        
-        view.addSubview(timerLabel)
-        timerLabel.snp.makeConstraints { maker in
-            maker.center.equalToSuperview()
-        }
-        
-        self.timerLabel = timerLabel
-    }
+//    private func prepareTimerView() {
+//        let timerLabel = UILabel()
+//        timerLabel.textAlignment = .center
+//        timerLabel.font = UIFont.systemFont(ofSize: 300)
+//
+//        view.addSubview(timerLabel)
+//        timerLabel.snp.makeConstraints { maker in
+//            maker.center.equalToSuperview()
+//        }
+//
+//        self.timerLabel = timerLabel
+//    }
     
-    func captureImage() {
-        guard let photoOutput = captureSession?.outputs.first(where: { $0 is AVCapturePhotoOutput }) as? AVCapturePhotoOutput else { return }
-        let settings = AVCapturePhotoSettings()
-        photoOutput.capturePhoto(with: settings, delegate: self)
-    }
+//    func captureImage() {
+//        guard let photoOutput = captureSession?.outputs.first(where: { $0 is AVCapturePhotoOutput }) as? AVCapturePhotoOutput else { return }
+//        let settings = AVCapturePhotoSettings()
+//        photoOutput.capturePhoto(with: settings, delegate: self)
+//    }
 
-    private func runTimer(seconds: Int, completion: @escaping () -> Void) {
-        isTimerRunning = true
-
-        var timeLeft = seconds
-        
-        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { timer in
-            self.timerLabel?.text = "\(timeLeft)"
-            timeLeft -= 1
-            
-            if timeLeft < 0 {
-                timer.invalidate()
-                self.isTimerRunning = false
-                self.timerLabel?.text = nil
-            
-                completion()
-            }
-        })
-        
-        RunLoop.current.add(timer, forMode: RunLoop.Mode.common)
-    }
+//    private func runTimer(seconds: Int, completion: @escaping () -> Void) {
+//        isTimerRunning = true
+//
+//        var timeLeft = seconds
+//
+//        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { timer in
+//            self.timerLabel?.text = "\(timeLeft)"
+//            timeLeft -= 1
+//
+//            if timeLeft < 0 {
+//                timer.invalidate()
+//                self.isTimerRunning = false
+//                self.timerLabel?.text = nil
+//
+//                completion()
+//            }
+//        })
+//
+//        RunLoop.current.add(timer, forMode: RunLoop.Mode.common)
+//    }
 }
 
-extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
+extension TutorialCameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
 
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         
@@ -203,31 +214,28 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             if confidence > 0.9 {
                 DispatchQueue.main.async { [self] in
                     switch label {
-                    case "okay":
-                        if isTimerRunning == false, isRecording == false {
-                            runTimer(seconds: 3, completion: { [weak self] in
-                                guard let self else { return }
-                                self.captureImage()
-                            })
-                        }
                     case "peace":
-                        if isTimerRunning == false, isRecording == false {
-                            runTimer(seconds: 3, completion: { [weak self] in
-                                guard let self else { return }
-                                
-                                print("pinched to start vid")
-                                self.startRecording()
-                                self.isRecording.toggle()
-                            })
+                        if tutorialVM.gesture == "PeacePoseBlack" {
+                            tutorialVM.gesture = "PeaceOk"
+                            tutorialVM.textGesture = "GOOD JOB"
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                self.tutorialVM.gesture = "FistPoseBlack"
+                                self.tutorialVM.textGesture = "STOP recording"
+                            }
                         }
                     case "fist":
-                        if isTimerRunning == false, isRecording == true { 
-                            runTimer(seconds: 3, completion: { [weak self] in
-                                guard let self else { return }
-                                print("pinched to stop vid")
-                                self.stopRecording()
-                                self.isRecording = false
-                            })
+                        if tutorialVM.gesture == "FistPoseBlack" {
+                            tutorialVM.gesture = "FistPose"
+                            tutorialVM.textGesture = "WELL DONE"
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                self.tutorialVM.gesture = "OkPoseBlack"
+                                self.tutorialVM.textGesture = "Now TAKE A PICTURE"
+                            }
+                        }
+                    case "okay":
+                        if tutorialVM.gesture == "OkPoseBlack" {
+                            tutorialVM.gesture = "OkPose"
+                            tutorialVM.textGesture = "GREAT!"
                         }
                     default : break
                     }
@@ -239,7 +247,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     }
 }
 
-extension CameraViewController: AVCapturePhotoCaptureDelegate {
+extension TutorialCameraViewController: AVCapturePhotoCaptureDelegate {
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         guard let imageData = photo.fileDataRepresentation() else { return }
@@ -248,7 +256,7 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate {
     }
 }
 
-extension CameraViewController: AVCaptureFileOutputRecordingDelegate {
+extension TutorialCameraViewController: AVCaptureFileOutputRecordingDelegate {
     
     func fileOutput(_ output: AVCaptureFileOutput, didStartRecordingTo fileURL: URL, from connections: [AVCaptureConnection]) {
         print("Started recording to \(fileURL)")
@@ -277,17 +285,17 @@ extension CameraViewController: AVCaptureFileOutputRecordingDelegate {
     }
 }
 
-struct HostedViewController: UIViewControllerRepresentable {
+struct TutorialHostedViewController: UIViewControllerRepresentable {
     
-    @ObservedObject var cameraVM: CameraViewModel
+    var tutorialVM: TutorialCameraViewModel
     
-    func makeUIViewController(context: Context) -> CameraViewController {
-        return CameraViewController()
+    func makeUIViewController(context: Context) -> TutorialCameraViewController {
+        return TutorialCameraViewController(tutorialVM: tutorialVM)
         }
 
-        func updateUIViewController(_ uiViewController: CameraViewController, context: Context) {
-            if cameraVM.capturePhoto {
-                uiViewController.captureImage()
-                    }
+        func updateUIViewController(_ uiViewController: TutorialCameraViewController, context: Context) {
+//            if cameraVM.capturePhoto {
+//                uiViewController.captureImage()
+//                    }
         }
 }
