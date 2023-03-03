@@ -26,7 +26,7 @@ class CameraViewController: UIViewController {
     private let handPoseRequest = VNDetectHumanHandPoseRequest()
     private let recordButton = UIButton()
     private var isRecording = false
-    
+    var savedTimer: Timer?
     // Declare a timer and a counter variable to track elapsed time
     var timer: Timer?
     var counter = 0
@@ -38,13 +38,26 @@ class CameraViewController: UIViewController {
         label.text = "00:00"
         label.font = UIFont.systemFont(ofSize: 39, weight: .semibold)
         label.textColor = UIColor.white
-        label.backgroundColor = UIColor.red
+        label.backgroundColor = UIColor.systemRed
         label.textAlignment = .center
         label.isHidden = true
         return label
     }()
 
     
+    let savedLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Video saved!"
+        label.numberOfLines = 2
+        label.font = UIFont.systemFont(ofSize: 53, weight: .semibold)
+        label.textColor = UIColor.white
+        label.backgroundColor = UIColor.black
+        label.textAlignment = .center
+        label.alpha = 0.65
+        label.isHidden = true
+        return label
+    }()
+
     
     var frameCounter = 0
     let handPosePredictionInterval = 30
@@ -70,6 +83,13 @@ class CameraViewController: UIViewController {
             recordLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -16),
             recordLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
+        view.addSubview(savedLabel)
+        savedLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            savedLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            savedLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+
 
         if let sound = Bundle.main.path(forResource: "camera-shutter.mp3", ofType: "mp3") {
             do {
@@ -239,6 +259,13 @@ class CameraViewController: UIViewController {
        if movieOutput.isRecording {
            movieOutput.stopRecording()
            stopTimer()
+           self.savedLabel.isHidden = false
+           self.savedTimer = Timer.scheduledTimer(withTimeInterval: 1.69 , repeats: false) { _ in
+               DispatchQueue.main.async {
+                   self.savedLabel.isHidden = true
+               }
+           }
+
            audioPlayer?.play()
        }
    }
@@ -406,6 +433,7 @@ extension CameraViewController: AVCaptureFileOutputRecordingDelegate {
                     }) { success, error in
                         if success {
                             print("Video saved to photos")
+
                         } else {
                             print("Error saving video to photos: \(error?.localizedDescription ?? "unknown error")")
                         }
