@@ -38,6 +38,7 @@ class CameraViewController: UIViewController {
         label.text = "00:00"
         label.font = UIFont.systemFont(ofSize: 39, weight: .semibold)
         label.textColor = UIColor.white
+        label.backgroundColor = UIColor.red
         label.textAlignment = .center
         label.isHidden = true
         return label
