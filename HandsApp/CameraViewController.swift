@@ -33,23 +33,23 @@ class CameraViewController: UIViewController {
     
     
     // Declare a UILabel to display the time elapsed
-    let recordLabel: UILabel = {
+    static let recordLabel: UILabel = {
         let label = UILabel()
         label.text = "00:00"
-        label.font = UIFont.systemFont(ofSize: 39, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 39, weight: .regular)
         label.textColor = UIColor.white
-        label.backgroundColor = UIColor.systemRed
+//        label.backgroundColor = UIColor.systemRed
         label.textAlignment = .center
-        label.isHidden = true
+//        label.isHidden = true
         return label
     }()
 
     
     let savedLabel: UILabel = {
         let label = UILabel()
-        label.text = "Video saved!"
+        label.text = "Video added to photos!"
         label.numberOfLines = 2
-        label.font = UIFont.systemFont(ofSize: 53, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 37.5, weight: .regular)
         label.textColor = UIColor.white
         label.backgroundColor = UIColor.black
         label.textAlignment = .center
@@ -77,11 +77,11 @@ class CameraViewController: UIViewController {
         prepareTimerView()
 //        prepareBottomControls()
         
-        view.addSubview(recordLabel)
-        recordLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(CameraViewController.recordLabel)
+        CameraViewController.recordLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            recordLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -16),
-            recordLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            CameraViewController.recordLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -49),
+            CameraViewController.recordLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         view.addSubview(savedLabel)
         savedLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -110,10 +110,11 @@ class CameraViewController: UIViewController {
     
     //  timer to start counting seconds and minutes when recording starts
     func startTimer() {
-        recordLabel.isHidden = false
+//        CameraViewController.recordLabel.isHidden = false
+        CameraViewController.recordLabel.textColor = .red
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             self?.counter += 1
-            self?.recordLabel.text = self?.formattedTime()
+            CameraViewController.recordLabel.text = self?.formattedTime()
         }
     }
     
@@ -122,8 +123,9 @@ class CameraViewController: UIViewController {
         timer?.invalidate()
         timer = nil
         counter = 0
-        recordLabel.isHidden = true
-        recordLabel.text = "00:00"
+//        CameraViewController.recordLabel.isHidden = true
+        CameraViewController.recordLabel.textColor = .white
+        CameraViewController.recordLabel.text = "00:00"
     }
     // for every 60 seconds it will add a minute
     func formattedTime() -> String {
@@ -260,7 +262,7 @@ class CameraViewController: UIViewController {
            movieOutput.stopRecording()
            stopTimer()
            self.savedLabel.isHidden = false
-           self.savedTimer = Timer.scheduledTimer(withTimeInterval: 1.69 , repeats: false) { _ in
+           self.savedTimer = Timer.scheduledTimer(withTimeInterval: 2.69 , repeats: false) { _ in
                DispatchQueue.main.async {
                    self.savedLabel.isHidden = true
                }
