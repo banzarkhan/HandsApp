@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    @State var isActive = false
+
     @State private var size = 0.8
     @State private var opacity = 0.5
+    
+//    var navigationVM: NavigationViewModel
+    
     init() {
         UIPageControl.appearance().currentPageIndicatorTintColor = .gray
         UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray

@@ -41,16 +41,10 @@ class TutorialCameraViewController: UIViewController {
     
     let model = try? MyHandPoseClassifier_1(configuration: MLModelConfiguration())
     
-//    private weak var timerLabel: UILabel?
-    
-//    private var isTimerRunning = false
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareCaptureSession()
         prepareCaptureUI()
-//        addAudioInput()
-//        prepareTimerView()
         
         handPoseRequest.maximumHandCount = 1
     }
@@ -106,77 +100,6 @@ class TutorialCameraViewController: UIViewController {
         
         self.videoPreviewLayer = videoPreviewLayer
     }
-    
-//    func addAudioInput() {
-//        let audioSession = AVAudioSession.sharedInstance()
-//        do {
-//            try audioSession.setCategory(.playAndRecord, mode: .default)
-//            try audioSession.setActive(true, options: .init())
-//            let audioDevice = AVCaptureDevice.default(for: AVMediaType.audio)!
-//            let audioInput = try AVCaptureDeviceInput(device: audioDevice)
-//            if ((captureSession?.canAddInput(audioInput)) != nil) {
-//                captureSession!.addInput(audioInput)
-//            }
-//        } catch {
-//            print("Error setting up audio input: \(error.localizedDescription)")
-//        }
-//    }
-    
-    
-//    func startRecording() {
-//        if !movieOutput.isRecording {
-//            let outputPath = NSTemporaryDirectory() + "output.mov"
-//            let outputFileURL = URL(fileURLWithPath: outputPath)
-//
-//            movieOutput.startRecording(to: outputFileURL, recordingDelegate: self)
-//
-//        }
-//    }
-//    func stopRecording() {
-//        if movieOutput.isRecording {
-//            movieOutput.stopRecording()
-//        }
-//    }
-    
-//    private func prepareTimerView() {
-//        let timerLabel = UILabel()
-//        timerLabel.textAlignment = .center
-//        timerLabel.font = UIFont.systemFont(ofSize: 300)
-//
-//        view.addSubview(timerLabel)
-//        timerLabel.snp.makeConstraints { maker in
-//            maker.center.equalToSuperview()
-//        }
-//
-//        self.timerLabel = timerLabel
-//    }
-    
-//    func captureImage() {
-//        guard let photoOutput = captureSession?.outputs.first(where: { $0 is AVCapturePhotoOutput }) as? AVCapturePhotoOutput else { return }
-//        let settings = AVCapturePhotoSettings()
-//        photoOutput.capturePhoto(with: settings, delegate: self)
-//    }
-
-//    private func runTimer(seconds: Int, completion: @escaping () -> Void) {
-//        isTimerRunning = true
-//
-//        var timeLeft = seconds
-//
-//        let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { timer in
-//            self.timerLabel?.text = "\(timeLeft)"
-//            timeLeft -= 1
-//
-//            if timeLeft < 0 {
-//                timer.invalidate()
-//                self.isTimerRunning = false
-//                self.timerLabel?.text = nil
-//
-//                completion()
-//            }
-//        })
-//
-//        RunLoop.current.add(timer, forMode: RunLoop.Mode.common)
-//    }
 }
 
 extension TutorialCameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
@@ -236,6 +159,9 @@ extension TutorialCameraViewController: AVCaptureVideoDataOutputSampleBufferDele
                         if tutorialVM.gesture == "OkPoseBlack" {
                             tutorialVM.gesture = "OkPose"
                             tutorialVM.textGesture = "GREAT!"
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                self.tutorialVM.gesture = ""
+                            }
                         }
                     default : break
                     }
@@ -294,8 +220,5 @@ struct TutorialHostedViewController: UIViewControllerRepresentable {
         }
 
         func updateUIViewController(_ uiViewController: TutorialCameraViewController, context: Context) {
-//            if cameraVM.capturePhoto {
-//                uiViewController.captureImage()
-//                    }
         }
 }

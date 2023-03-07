@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+        
+    @AppStorage("NeedsSplash") var needsSplash = true
+
     var body: some View {
-        GesturesView()
+        
+        if needsSplash{
+            SplashPage()
+        } else {
+            CameraView()
+        }
     }
 }
 

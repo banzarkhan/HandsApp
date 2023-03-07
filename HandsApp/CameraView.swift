@@ -20,30 +20,30 @@ struct CameraView: View {
     @StateObject var cameraVM = CameraViewModel()
     @State var isRefineModal = false
     
+    @AppStorage("NeedsOnboarding") var needsOnboarding = true
+    @AppStorage("NeedsTutorial") var needsTutorial = false
+    
     var body: some View {
         ZStack {
             ZStack(alignment:.top){
                 HostedViewController(cameraVM: cameraVM)
                     .ignoresSafeArea()
                     .overlay(alignment: .top){
-                        RoundedRectangle(cornerRadius: 0)
+                        RoundedRectangle(cornerRadius: 10)
                             .ignoresSafeArea()
-                            .foregroundColor(.gray)
-                            .opacity(0.17)
+                            .foregroundColor(.white)
+                            .opacity(0.50)
                             .frame(height: 37)
-                            .background(.ultraThinMaterial)
-                            .shadow(radius: 0)
+                            .foregroundStyle(.ultraThinMaterial)
                     }
                     .overlay(alignment: .bottom){
                         ZStack{
-                            
-                            RoundedRectangle(cornerRadius: 0)
+                            RoundedRectangle(cornerRadius: 10)
                                 .ignoresSafeArea()
-                                .foregroundColor(.gray)
-                                .opacity(0.17)
+                                .foregroundColor(.white)
+                                .opacity(0.50)
                                 .frame(height: 125)
-                                .background(.ultraThinMaterial)
-                                .shadow(radius: 30)
+                                .foregroundStyle(.ultraThinMaterial)
 
                             HStack(alignment: .bottom){
                                 Button {
@@ -83,6 +83,12 @@ struct CameraView: View {
                     .frame(maxWidth: 20 , maxHeight: 20)
             }
 
+        }
+        .fullScreenCover(isPresented: $needsOnboarding){
+            OnboardingView()
+        }
+        .fullScreenCover(isPresented: $needsTutorial){
+            TutorialCameraView()
         }
         .sheet(isPresented: $isRefineModal) {
             RefineModalView()
