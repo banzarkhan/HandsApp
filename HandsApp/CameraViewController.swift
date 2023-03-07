@@ -62,7 +62,7 @@ class CameraViewController: UIViewController {
     var frameCounter = 0
     let handPosePredictionInterval = 30
     
-    let model = try? HandPoseClassifier_1(configuration: MLModelConfiguration())
+    let model = try? MyHandPoseClassifier_1(configuration: MLModelConfiguration())
     
     private weak var timerLabel: UILabel?
     

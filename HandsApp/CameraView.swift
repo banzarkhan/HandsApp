@@ -18,6 +18,7 @@ struct RecordLabelView: UIViewRepresentable {
 }
 struct CameraView: View {
     @StateObject var cameraVM = CameraViewModel()
+    @State var isRefineModal = false
     
     var body: some View {
         ZStack {
@@ -44,29 +45,35 @@ struct CameraView: View {
                                 .background(.ultraThinMaterial)
                                 .shadow(radius: 30)
 
-                            HStack{
-                                Image(systemName: "photo")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 50, height: 50)
+                            HStack(alignment: .bottom){
+                                Button {
+                                    isRefineModal.toggle()
+                                } label: {
+                                    Image("okSymbol")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 40, height: 40)
+                                        .padding()
+                                }
                                 Spacer()
                                 Button {
                                     cameraVM.capturePhoto.toggle()
                                 } label: {
                                     ZStack {
                                         Circle()
-                                            .strokeBorder(.black, lineWidth: 3)
-                                            .frame(width: 62, height: 62)
+                                            .strokeBorder(.white, lineWidth: 4)
+                                            .frame(width: 75, height: 75)
                                         Circle()
-                                            .fill(.red)
-                                            .frame(width: 50, height: 50)
+                                            .fill(.white)
+                                            .frame(width: 63, height: 63)
                                     }
                                 }
                                 Spacer()
                                 Image(systemName: "arrow.triangle.2.circlepath")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 50, height: 50)
+                                    .font(.title)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color.white)
+                                    .padding()
                             }
                             .padding()
                         }
@@ -77,6 +84,8 @@ struct CameraView: View {
             }
 
         }
+        .sheet(isPresented: $isRefineModal) {
+            RefineModalView()
+        }
     }
 }
-

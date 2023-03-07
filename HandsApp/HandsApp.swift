@@ -11,7 +11,7 @@ import SwiftUI
 struct HandsApp: App {
     var body: some Scene {
         WindowGroup {
-            TutorialCameraView()
+            CameraView(cameraVM: CameraViewModel())
         }
     }
 }
