@@ -76,7 +76,7 @@ class CameraViewController: UIViewController {
         addAudioInput()
         prepareTimerView()
 //        prepareBottomControls()
-        
+        UIApplication.shared.isIdleTimerDisabled = true
         view.addSubview(CameraViewController.recordLabel)
         CameraViewController.recordLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -108,6 +108,14 @@ class CameraViewController: UIViewController {
         captureSession = nil
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Re-enable idle timer when the app goes into the background or is closed
+        UIApplication.shared.isIdleTimerDisabled = false
+    }
+    
+
     //  timer to start counting seconds and minutes when recording starts
     func startTimer() {
 //        CameraViewController.recordLabel.isHidden = false
