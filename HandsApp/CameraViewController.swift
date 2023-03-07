@@ -12,9 +12,11 @@ import AVFoundation
 import Vision
 import Photos
 import SnapKit
+import AVKit
+
 
 class CameraViewController: UIViewController {
-    
+    var audioPlayer: AVAudioPlayer? //for playing  sound
     private var captureSession: AVCaptureSession?
     private var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     
@@ -24,6 +26,38 @@ class CameraViewController: UIViewController {
     private let handPoseRequest = VNDetectHumanHandPoseRequest()
     private let recordButton = UIButton()
     private var isRecording = false
+    var savedTimer: Timer?
+    // Declare a timer and a counter variable to track elapsed time
+    var timer: Timer?
+    var counter = 0
+    
+    
+    // Declare a UILabel to display the time elapsed
+    static let recordLabel: UILabel = {
+        let label = UILabel()
+        label.text = "00:00"
+        label.font = UIFont.systemFont(ofSize: 39, weight: .regular)
+        label.textColor = UIColor.white
+//        label.backgroundColor = UIColor.systemRed
+        label.textAlignment = .center
+//        label.isHidden = true
+        return label
+    }()
+
+    
+    let savedLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Video added to photos!"
+        label.numberOfLines = 2
+        label.font = UIFont.systemFont(ofSize: 37.5, weight: .regular)
+        label.textColor = UIColor.white
+        label.backgroundColor = UIColor.black
+        label.textAlignment = .center
+        label.alpha = 0.65
+        label.isHidden = true
+        return label
+    }()
+
     
     var frameCounter = 0
     let handPosePredictionInterval = 30
@@ -41,6 +75,29 @@ class CameraViewController: UIViewController {
         addAudioInput()
         prepareTimerView()
         
+        view.addSubview(CameraViewController.recordLabel)
+        CameraViewController.recordLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            CameraViewController.recordLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -49),
+            CameraViewController.recordLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+        view.addSubview(savedLabel)
+        savedLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            savedLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            savedLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+
+
+        if let sound = Bundle.main.path(forResource: "camera-shutter.mp3", ofType: "mp3") {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound))
+            } catch {
+                print("Error loading sound file: \(error.localizedDescription)")
+            }
+            
+        }
+
         handPoseRequest.maximumHandCount = 1
     }
     
@@ -48,6 +105,33 @@ class CameraViewController: UIViewController {
         captureSession?.stopRunning()
         captureSession = nil
     }
+    
+    //  timer to start counting seconds and minutes when recording starts
+    func startTimer() {
+//        CameraViewController.recordLabel.isHidden = false
+        CameraViewController.recordLabel.textColor = .red
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+            self?.counter += 1
+            CameraViewController.recordLabel.text = self?.formattedTime()
+        }
+    }
+    
+    // Stop the timer when recording ends
+    func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+        counter = 0
+//        CameraViewController.recordLabel.isHidden = true
+        CameraViewController.recordLabel.textColor = .white
+        CameraViewController.recordLabel.text = "00:00"
+    }
+    // for every 60 seconds it will add a minute
+    func formattedTime() -> String {
+        let minutes = counter / 60
+        let seconds = counter % 60
+        return String(format: "%02d:%02d", minutes, seconds)
+    }
+    
     
     private func prepareCaptureSession() {
         let captureSession = AVCaptureSession()
@@ -113,19 +197,33 @@ class CameraViewController: UIViewController {
     
     
     func startRecording() {
-        if !movieOutput.isRecording {
-            let outputPath = NSTemporaryDirectory() + "output.mov"
-            let outputFileURL = URL(fileURLWithPath: outputPath)
-            
-            movieOutput.startRecording(to: outputFileURL, recordingDelegate: self)
-            
-        }
-    }
+       if !movieOutput.isRecording {
+           let outputPath = NSTemporaryDirectory() + "output.mov"
+           let outputFileURL = URL(fileURLWithPath: outputPath)
+           
+           movieOutput.startRecording(to: outputFileURL, recordingDelegate: self)
+           startTimer()
+           audioPlayer?.play()
+
+       }
+   }
     func stopRecording() {
-        if movieOutput.isRecording {
-            movieOutput.stopRecording()
-        }
-    }
+       if movieOutput.isRecording {
+           movieOutput.stopRecording()
+           stopTimer()
+           self.savedLabel.isHidden = false
+           self.savedTimer = Timer.scheduledTimer(withTimeInterval: 2.69 , repeats: false) { _ in
+               DispatchQueue.main.async {
+                   self.savedLabel.isHidden = true
+               }
+           }
+
+           audioPlayer?.play()
+       }
+   }
+
+
+
     
     private func prepareTimerView() {
         let timerLabel = UILabel()
@@ -144,6 +242,26 @@ class CameraViewController: UIViewController {
         guard let photoOutput = captureSession?.outputs.first(where: { $0 is AVCapturePhotoOutput }) as? AVCapturePhotoOutput else { return }
         let settings = AVCapturePhotoSettings()
         photoOutput.capturePhoto(with: settings, delegate: self)
+        
+        let shutterView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+        shutterView.backgroundColor = UIColor.black
+        shutterView.alpha = 0.0
+        view.addSubview(shutterView)
+
+        UIView.animate(withDuration: 0.1, animations: {
+            shutterView.alpha = 1.0
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.13, animations: {
+                shutterView.alpha = 0.0
+            }, completion: { _ in
+                shutterView.removeFromSuperview()
+            })
+        })
+
+        
+        
+        audioPlayer?.play()
+
     }
 
     private func runTimer(seconds: Int, completion: @escaping () -> Void) {
@@ -221,13 +339,11 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                             })
                         }
                     case "fist":
-                        if isTimerRunning == false, isRecording == true { 
-                            runTimer(seconds: 3, completion: { [weak self] in
-                                guard let self else { return }
-                                print("pinched to stop vid")
-                                self.stopRecording()
-                                self.isRecording = false
-                            })
+                        if isTimerRunning == false, isRecording == true {
+                            self.stopRecording()
+                            self.isRecording = false
+                        
+                            
                         }
                     default : break
                     }
@@ -265,6 +381,7 @@ extension CameraViewController: AVCaptureFileOutputRecordingDelegate {
                     }) { success, error in
                         if success {
                             print("Video saved to photos")
+
                         } else {
                             print("Error saving video to photos: \(error?.localizedDescription ?? "unknown error")")
                         }
