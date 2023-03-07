@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct HandsApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            CameraView(cameraVM: CameraViewModel())
+            ContentView()
         }
     }
 }
