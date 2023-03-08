@@ -17,6 +17,8 @@ import AVKit
 
 class CameraViewController: UIViewController {
     var audioPlayer: AVAudioPlayer? //for playing  sound
+    var audioPlayerVid: AVAudioPlayer?
+    var audioPlayerStop: AVAudioPlayer?
     private var captureSession: AVCaptureSession?
     private var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     
@@ -100,6 +102,25 @@ class CameraViewController: UIViewController {
             }
             
         }
+        
+        if let sound = Bundle.main.path(forResource: "beep.mp3", ofType: "mp3") {
+            do {
+                audioPlayerVid = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound))
+            } catch {
+                print("Error loading sound file: \(error.localizedDescription)")
+            }
+            
+        }
+
+        if let sound = Bundle.main.path(forResource: "stop.mp3", ofType: "mp3") {
+            do {
+                audioPlayerStop = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound))
+            } catch {
+                print("Error loading sound file: \(error.localizedDescription)")
+            }
+            
+        }
+
 
         handPoseRequest.maximumHandCount = 1
     }
@@ -241,7 +262,7 @@ class CameraViewController: UIViewController {
            
            movieOutput.startRecording(to: outputFileURL, recordingDelegate: self)
            startTimer()
-           audioPlayer?.play()
+           audioPlayerVid?.play()
 
        }
    }
@@ -256,7 +277,7 @@ class CameraViewController: UIViewController {
                }
            }
 
-           audioPlayer?.play()
+           audioPlayerStop?.play()
        }
    }
 

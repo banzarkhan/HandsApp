@@ -34,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		10A6F22B29B8FD380030405E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		10A6F22C29B8FD8B0030405E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		540B56AA29B1039400699001 /* TutorialCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCameraViewController.swift; sourceTree = "<group>"; };
 		540B56AC29B104C500699001 /* TutorialCameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCameraViewModel.swift; sourceTree = "<group>"; };
 		540B56AE29B104FB00699001 /* TutorialCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCameraView.swift; sourceTree = "<group>"; };
@@ -55,7 +56,6 @@
 		54C940C229AA36DF00AF67BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54C940C529AA36DF00AF67BC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		54CC499E29B7721E0008364A /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
-		54DA568B29B8D1CC00EE9602 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		54EC718929B2064700168D8C /* HandPoseClassifier 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "HandPoseClassifier 1.mlmodel"; sourceTree = "<group>"; };
 		54F3194B29B73A1700EE0A2B /* RefineModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefineModalView.swift; sourceTree = "<group>"; };
 		E5526B3129B8D92900C1ED35 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -196,9 +196,9 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				ru,
 				it,
 				ar,
+				ru,
 			);
 			mainGroup = 54C940B229AA36DE00AF67BC;
 			packageReferences = (
@@ -261,8 +261,8 @@
 			children = (
 				E5526B3129B8D92900C1ED35 /* en */,
 				E5526B3329B8D93600C1ED35 /* it */,
-				54DA568B29B8D1CC00EE9602 /* ru */,
 				10A6F22B29B8FD380030405E /* ar */,
+				10A6F22C29B8FD8B0030405E /* ru */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
