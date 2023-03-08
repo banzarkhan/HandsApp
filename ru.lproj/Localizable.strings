@@ -1,0 +1,39 @@
+/* 
+  Localizable.strings
+  HandsApp
+
+  Created by Ariuna Banzarkhanova on 08/03/23.
+  
+*/
+
+"Gestures" = "Жесты";
+
+"START recording"="НАЧАТЬ запись видео";
+
+"GOOD JOB" = "Хорошая работа!";
+
+"STOP recording" = "ОСТАНОВИТЬ запись";
+
+"WELL DONE" = "МОЛОДЕЦ";
+
+"Now TAKE A PICTURE" = "Теперь СДЕЛАТЬ ФОТО";
+
+"GREAT!" = "ОТЛИЧНО!";
+
+"Now you are ready!" = "Ты готов!";
+
+"Start!" = "Поехали!";
+
+"TRY now!" = "Твоя очередь!";
+
+"Show this gesture to the camera to" = "Покажи этот жест, чтобы ";
+
+"START" = "НАЧАТЬ";
+
+"recording" = "съёмку";
+
+"STOP" = "ОСТАНОВИТЬ";
+
+"TAKE A PICTURE" = "CДЕЛАТЬ ФОТО";
+
+"Video added to photos!" = "Видео сохранено в галерею"
