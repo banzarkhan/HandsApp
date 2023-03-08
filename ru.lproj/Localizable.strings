@@ -5,35 +5,38 @@
   Created by Ariuna Banzarkhanova on 08/03/23.
   
 */
+//TUTORIALCAMERAVIEWCONTROLLER
 
 "Gestures" = "Жесты";
-
-"START recording"="НАЧАТЬ запись видео";
-
-"GOOD JOB" = "Хорошая работа!";
-
+"GOOD JOB" = "ХОРОШАЯ РАБОТА!";
 "STOP recording" = "ОСТАНОВИТЬ запись";
-
-"WELL DONE" = "МОЛОДЕЦ";
-
+"WELL DONE" = "ЗАМЕЧАТЕЛЬНО";
 "Now TAKE A PICTURE" = "Теперь СДЕЛАТЬ ФОТО";
-
 "GREAT!" = "ОТЛИЧНО!";
 
-"Now you are ready!" = "Ты готов!";
+//TUTORIALCAMMERAVIEWMODEL
+"START recording"="НАЧАТЬ запись видео";
 
+//TUTORIALMODALVIEW
+"Now you are ready!" = "Ты готов!";
 "Start!" = "Поехали!";
 
-"TRY now!" = "Твоя очередь!";
-
+//GESTURETUTORIAL1
 "Show this gesture to the camera to" = "Покажи этот жест, чтобы ";
-
 "START" = "НАЧАТЬ";
-
 "recording" = "съёмку";
 
+//GESTURETUTORIAL2
+"Show this gesture to the camera to" = "Покажи этот жест, чтобы ";
 "STOP" = "ОСТАНОВИТЬ";
+"recording" = "съёмку";
 
+//GESTURETUTORIAL3
+"Show this gesture to the camera to" = "Покажи этот жест, чтобы ";
 "TAKE A PICTURE" = "CДЕЛАТЬ ФОТО";
 
-"Video added to photos!" = "Видео сохранено в галерею"
+//THUMPPAGEVIEW
+"TRY now!" = "Твоя очередь!";
+
+//CAMERAVIEWCONTROLLER
+"Video added to photos!" = "Видео сохранено в галерею";

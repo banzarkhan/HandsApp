@@ -5,3 +5,37 @@
   Created by Ariuna Banzarkhanova on 08/03/23.
   
 */
+//TUTORIALCAMERAVIEWCONTROLLER
+"Gestures" = "Жесты"
+"GOOD JOB" = "GOOD JOB";
+"STOP recording" = "STOP recording";
+"WELL DONE" = "WELL DONE";
+"Now TAKE A PICTURE" = "Now TAKE A PICTURE";
+"GREAT!" = "GREAT!";
+
+//TUTORIALCAMMERAVIEWMODEL
+"START recording" = "START recording";
+
+//TUTORIALMODALVIEW
+"Now you are ready!" = "Now you are ready!";
+"Start!" = "Start!";
+
+//GESTURETUTORIAL1
+"Show this gesture to the camera to" = "Show this gesture to the camera to";
+"START" = "START";
+"recording" = "recording";
+
+//GESTURETUTORIAL2
+"Show this gesture to the camera to" = "Show this gesture to the camera to";
+"STOP" = "STOP";
+"recording" = "recording";
+
+//GESTURETUTORIAL3
+"Show this gesture to the camera to" = "Show this gesture to the camera to";
+"TAKE A PICTURE" = "TAKE A PICTURE";
+
+//THUMPPAGEVIEW
+"TRY now!" = "TRY now!";
+
+//CAMERAVIEWCONTROLLER
+"Video added to photos!" = "Video added to photos!";
