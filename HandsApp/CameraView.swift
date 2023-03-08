@@ -29,21 +29,21 @@ struct CameraView: View {
                 HostedViewController(cameraVM: cameraVM)
                     .ignoresSafeArea()
                     .overlay(alignment: .top){
-                        RoundedRectangle(cornerRadius: 10)
+                        RoundedRectangle(cornerRadius: 0.1)
                             .ignoresSafeArea()
-                            .foregroundColor(.white)
+                            .foregroundColor(.black)
                             .opacity(0.50)
                             .frame(height: 37)
-                            .foregroundStyle(.ultraThinMaterial)
+                            //.foregroundStyle(.ultraThinMaterial)
                     }
                     .overlay(alignment: .bottom){
                         ZStack{
-                            RoundedRectangle(cornerRadius: 10)
+                            RoundedRectangle(cornerRadius: 0.1)
                                 .ignoresSafeArea()
-                                .foregroundColor(.white)
+                                .foregroundColor(.black)
                                 .opacity(0.50)
                                 .frame(height: 125)
-                                .foregroundStyle(.ultraThinMaterial)
+                                //.foregroundStyle(.ultraThinMaterial)
 
                             HStack(alignment: .bottom){
                                 Button {

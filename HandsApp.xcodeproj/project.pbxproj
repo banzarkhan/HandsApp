@@ -13,8 +13,6 @@
 		540B56B229B1097700699001 /* TutorialModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540B56B129B1097700699001 /* TutorialModalView.swift */; };
 		544AF11129AF653D00757C7E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544AF11029AF653D00757C7E /* ContentView.swift */; };
 		544AF11329AF674D00757C7E /* HandsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544AF11229AF674D00757C7E /* HandsApp.swift */; };
-		544E4E9729B0E0F00063EB35 /* CaptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544E4E9629B0E0F00063EB35 /* CaptionView.swift */; };
-		544E4E9929B0E1470063EB35 /* NextButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544E4E9829B0E1470063EB35 /* NextButtonView.swift */; };
 		544E4E9B29B0E30B0063EB35 /* SplashPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544E4E9A29B0E30B0063EB35 /* SplashPage.swift */; };
 		544E4E9D29B0E3940063EB35 /* GestureTutorial1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544E4E9C29B0E3940063EB35 /* GestureTutorial1.swift */; };
 		544E4E9F29B0E3B90063EB35 /* GestureTutorial2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544E4E9E29B0E3B90063EB35 /* GestureTutorial2.swift */; };
@@ -32,6 +30,7 @@
 		54CC499F29B7721E0008364A /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CC499E29B7721E0008364A /* NavigationViewModel.swift */; };
 		54EC718A29B2064700168D8C /* HandPoseClassifier 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 54EC718929B2064700168D8C /* HandPoseClassifier 1.mlmodel */; };
 		54F3194C29B73A1700EE0A2B /* RefineModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F3194B29B73A1700EE0A2B /* RefineModalView.swift */; };
+		E5526B3029B8D92900C1ED35 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5526B3229B8D92900C1ED35 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,8 +40,6 @@
 		540B56B129B1097700699001 /* TutorialModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialModalView.swift; sourceTree = "<group>"; };
 		544AF11029AF653D00757C7E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		544AF11229AF674D00757C7E /* HandsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandsApp.swift; sourceTree = "<group>"; };
-		544E4E9629B0E0F00063EB35 /* CaptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionView.swift; sourceTree = "<group>"; };
-		544E4E9829B0E1470063EB35 /* NextButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButtonView.swift; sourceTree = "<group>"; };
 		544E4E9A29B0E30B0063EB35 /* SplashPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPage.swift; sourceTree = "<group>"; };
 		544E4E9C29B0E3940063EB35 /* GestureTutorial1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureTutorial1.swift; sourceTree = "<group>"; };
 		544E4E9E29B0E3B90063EB35 /* GestureTutorial2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureTutorial2.swift; sourceTree = "<group>"; };
@@ -61,6 +58,8 @@
 		54CC499E29B7721E0008364A /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
 		54EC718929B2064700168D8C /* HandPoseClassifier 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "HandPoseClassifier 1.mlmodel"; sourceTree = "<group>"; };
 		54F3194B29B73A1700EE0A2B /* RefineModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefineModalView.swift; sourceTree = "<group>"; };
+		E5526B3129B8D92900C1ED35 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E5526B3329B8D93600C1ED35 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,8 +88,6 @@
 		544E4EA629B0E73B0063EB35 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				544E4E9629B0E0F00063EB35 /* CaptionView.swift */,
-				544E4E9829B0E1470063EB35 /* NextButtonView.swift */,
 				544E4E9A29B0E30B0063EB35 /* SplashPage.swift */,
 				544E4E9C29B0E3940063EB35 /* GestureTutorial1.swift */,
 				544E4E9E29B0E3B90063EB35 /* GestureTutorial2.swift */,
@@ -129,6 +126,7 @@
 		54C940BD29AA36DE00AF67BC /* HandsApp */ = {
 			isa = PBXGroup;
 			children = (
+				E5526B3229B8D92900C1ED35 /* Localizable.strings */,
 				540B56B029B1050D00699001 /* Tutorial */,
 				54B61AAE29B0DF2200B75B0E /* Onboarding */,
 				544AF11229AF674D00757C7E /* HandsApp.swift */,
@@ -199,7 +197,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				it,
 			);
 			mainGroup = 54C940B229AA36DE00AF67BC;
 			packageReferences = (
@@ -220,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54C940C629AA36DF00AF67BC /* Preview Assets.xcassets in Resources */,
+				E5526B3029B8D92900C1ED35 /* Localizable.strings in Resources */,
 				54C940C329AA36DF00AF67BC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,7 +231,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				54EC718A29B2064700168D8C /* HandPoseClassifier 1.mlmodel in Sources */,
-				544E4E9929B0E1470063EB35 /* NextButtonView.swift in Sources */,
 				548DA07A29AFB1950091DD67 /* GesturesView.swift in Sources */,
 				544E4EA129B0E4FA0063EB35 /* GestureTutorial3.swift in Sources */,
 				544E4EA529B0E5DA0063EB35 /* OnboardingView.swift in Sources */,
@@ -244,7 +242,6 @@
 				544AF11329AF674D00757C7E /* HandsApp.swift in Sources */,
 				540B56AF29B104FB00699001 /* TutorialCameraView.swift in Sources */,
 				544E4E9F29B0E3B90063EB35 /* GestureTutorial2.swift in Sources */,
-				544E4E9729B0E0F00063EB35 /* CaptionView.swift in Sources */,
 				54CC499F29B7721E0008364A /* NavigationViewModel.swift in Sources */,
 				540B56B229B1097700699001 /* TutorialModalView.swift in Sources */,
 				544E4E9B29B0E30B0063EB35 /* SplashPage.swift in Sources */,
@@ -258,11 +255,24 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		E5526B3229B8D92900C1ED35 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5526B3129B8D92900C1ED35 /* en */,
+				E5526B3329B8D93600C1ED35 /* it */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		54C940C729AA36DF00AF67BC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -323,6 +333,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -381,7 +392,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HandsApp/Preview Content\"";
-				DEVELOPMENT_TEAM = LU4XHFZPKM;
+				DEVELOPMENT_TEAM = X5X7NTDQ7U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HandsApp/Info.plist;
@@ -399,7 +410,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ariuna.HandsApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ilaria.HandsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -418,7 +429,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HandsApp/Preview Content\"";
-				DEVELOPMENT_TEAM = LU4XHFZPKM;
+				DEVELOPMENT_TEAM = X5X7NTDQ7U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HandsApp/Info.plist;
@@ -436,7 +447,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ariuna.HandsApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ilaria.HandsApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
