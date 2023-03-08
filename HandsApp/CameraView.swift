@@ -69,12 +69,17 @@ struct CameraView: View {
                                     }
                                 }
                                 Spacer()
+                                Button {
+                                    cameraVM.toggleCamera.toggle()
+                                }
+                            label:{
                                 Image(systemName: "arrow.triangle.2.circlepath")
                                     .font(.title)
                                     .fontWeight(.bold)
                                     .foregroundColor(Color.white)
                                     .padding()
-                            }
+                                }
+                                                            }
                             .padding()
                         }
                     }

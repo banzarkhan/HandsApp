@@ -11,7 +11,7 @@ struct NextButton: View {
     var body: some View {
         Button(action: {print("Button Tap")},
                label: {
-            Text ("TRY now!")
+            Text(LocalizedStringKey("TRY now!"))
                 .fontWeight(.bold)
                 .foregroundColor(.white)
                 .padding(10)

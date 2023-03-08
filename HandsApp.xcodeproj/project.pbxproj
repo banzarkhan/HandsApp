@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10A6F22629B8D3FE0030405E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10A6F22829B8D3FE0030405E /* Localizable.strings */; };
 		540B56AB29B1039400699001 /* TutorialCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540B56AA29B1039400699001 /* TutorialCameraViewController.swift */; };
 		540B56AD29B104C500699001 /* TutorialCameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540B56AC29B104C500699001 /* TutorialCameraViewModel.swift */; };
 		540B56AF29B104FB00699001 /* TutorialCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540B56AE29B104FB00699001 /* TutorialCameraView.swift */; };
@@ -34,14 +35,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10A6F22729B8D3FE0030405E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		10A6F22929B8D4000030405E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		540B56AA29B1039400699001 /* TutorialCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCameraViewController.swift; sourceTree = "<group>"; };
 		540B56AC29B104C500699001 /* TutorialCameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCameraViewModel.swift; sourceTree = "<group>"; };
 		540B56AE29B104FB00699001 /* TutorialCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCameraView.swift; sourceTree = "<group>"; };
-		540B56B129B1097700699001 /* TutorialModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialModalView.swift; sourceTree = "<group>"; };
+		540B56B129B1097700699001 /* TutorialModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialModalView.swift; sourceTree = "<group>"; usesTabs = 0; };
 		544AF11029AF653D00757C7E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		544AF11229AF674D00757C7E /* HandsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandsApp.swift; sourceTree = "<group>"; };
 		544E4E9629B0E0F00063EB35 /* CaptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionView.swift; sourceTree = "<group>"; };
-		544E4E9829B0E1470063EB35 /* NextButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButtonView.swift; sourceTree = "<group>"; };
+		544E4E9829B0E1470063EB35 /* NextButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButtonView.swift; sourceTree = "<group>"; usesTabs = 0; };
 		544E4E9A29B0E30B0063EB35 /* SplashPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPage.swift; sourceTree = "<group>"; };
 		544E4E9C29B0E3940063EB35 /* GestureTutorial1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureTutorial1.swift; sourceTree = "<group>"; };
 		544E4E9E29B0E3B90063EB35 /* GestureTutorial2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureTutorial2.swift; sourceTree = "<group>"; };
@@ -110,6 +113,7 @@
 		54C940B229AA36DE00AF67BC = {
 			isa = PBXGroup;
 			children = (
+				10A6F22829B8D3FE0030405E /* Localizable.strings */,
 				54C940BD29AA36DE00AF67BC /* HandsApp */,
 				54C940BC29AA36DE00AF67BC /* Products */,
 			);
@@ -196,6 +200,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ar,
 				Base,
 			);
 			mainGroup = 54C940B229AA36DE00AF67BC;
@@ -217,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54C940C629AA36DF00AF67BC /* Preview Assets.xcassets in Resources */,
+				10A6F22629B8D3FE0030405E /* Localizable.strings in Resources */,
 				54C940C329AA36DF00AF67BC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,6 +259,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		10A6F22829B8D3FE0030405E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10A6F22729B8D3FE0030405E /* en */,
+				10A6F22929B8D4000030405E /* ar */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		54C940C729AA36DF00AF67BC /* Debug */ = {
@@ -377,7 +395,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"HandsApp/Preview Content\"";
-				DEVELOPMENT_TEAM = LU4XHFZPKM;
+				DEVELOPMENT_TEAM = 43KKKRBAP2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HandsApp/Info.plist;

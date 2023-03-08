@@ -9,4 +9,5 @@ import Foundation
 
 class CameraViewModel: ObservableObject{
     @Published public var capturePhoto: Bool = false
+    @Published public var toggleCamera: Bool = false
 }

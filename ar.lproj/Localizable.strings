@@ -1,0 +1,39 @@
+/* 
+  Localizable.strings
+  HandsApp
+
+  Created by Aly Salman on 08/03/23.
+  
+*/
+"GOOD JOB!" = "!احسنت العمل";
+"STOP recording" = "توقيف التسجيل";
+"WELL DONE" = "!احسنت العمل";
+"Now TAKE A PICTURE" = "التقاط صوره";
+"GREAT!" = "!ممتاز";
+"Gestures" = "اشارات";
+//TUTORIALCAMMERAVIEWMODEL
+"START recording" = "ابدأ التسجيل";
+
+//TUTORIALMODALVIEW
+"Now you are ready!" = "!الان انت مستعد";
+"Start!" = "!ابدأ";
+
+//GESTURETUTORIAL1
+"Show this gesture to the camera to" = "قم بأظهار هذه الاشاره ل";
+"START" = "ابدأ";
+"recording" = "التسجيل";
+
+//GESTURETUTORIAL2
+"Show this gesture to the camera to" = "قم بأظهار هذه الاشاره ل";
+"STOP" = "توقف";
+"recording" = "التسجيل";
+
+//GESTURETUTORIAL3
+"Show this gesture to the camera to" = "قم بأظهار هذه الاشاره ل";
+"TAKE A PICTURE" = "التقاط صوره";
+
+//THUMPPAGEVIEW
+"TRY now!" = "!جرب الان";
+
+//CAMERAVIEWCONTROLLER
+"Video added to photos!" = "!تم تسجيل الفيديو بنجاح";

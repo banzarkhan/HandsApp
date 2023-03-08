@@ -9,7 +9,6 @@ import SwiftUI
 
 struct TutorialModalView: View {
     @ObservedObject var tutorialVM: TutorialCameraViewModel
-    
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 10)
