@@ -15,8 +15,8 @@ struct GestureTutorial3: View {
                 .resizable()
                 .frame(width: 114.53, height: 260)
                 .padding(60)
-                Text("Show this gesture to the camera to")
-                Text("TAKE A PICTURE")
+                Text(LocalizedStringKey("Show this gesture to the camera to"))
+                Text(("TAKE A PICTURE"))
                     .fontWeight(.heavy)
                     .multilineTextAlignment(.center)
             }

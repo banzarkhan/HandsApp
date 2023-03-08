@@ -16,12 +16,12 @@ struct GestureTutorial2: View {
                 .frame(width: 136, height: 260)
                 .padding(60)
                 HStack{
-                    Text("Show this gesture to the camera to")
+                    Text(LocalizedStringKey("Show this gesture to the camera to"))
                     Text("STOP")
                         .fontWeight(.heavy)
                         .multilineTextAlignment(.center)
                 }
-                Text("recording")
+                Text(LocalizedStringKey(("recording")))
             }
         }
     }

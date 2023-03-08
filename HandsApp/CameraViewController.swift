@@ -31,6 +31,7 @@ class CameraViewController: UIViewController {
     var timer: Timer?
     var counter = 0
     
+    var currentCameraPosition: AVCaptureDevice.Position = .front //keeping track of the current camera position.
     
     // Declare a UILabel to display the time elapsed
     static let recordLabel: UILabel = {
@@ -172,30 +173,6 @@ class CameraViewController: UIViewController {
         } catch {
         fatalError("Could not create video device input: \(error.localizedDescription)")
         
-        
-        // Add audio input
-//        guard let audioDevice = AVCaptureDevice.default(for: .audio) else {
-//            fatalError("Could not get audio device")
-//        }
-//
-//        do {
-//            let audioDeviceInput = try AVCaptureDeviceInput(device: audioDevice)
-//
-//            if captureSession.canAddInput(audioDeviceInput) {
-//                captureSession.addInput(audioDeviceInput)
-//            }
-//        } catch {
-//            fatalError("Could not create audio device input: \(error.localizedDescription)")
-//        }
-        
-        // Add video output
-//        if captureSession.canAddOutput(movieOutput) {
-//            captureSession.addOutput(movieOutput)
-//            addAudioInput()
-//        }
-//
-//        captureSession.commitConfiguration()
-
     }
         
         self.captureSession?.sessionPreset = .high
@@ -215,29 +192,32 @@ class CameraViewController: UIViewController {
         
         self.videoPreviewLayer = videoPreviewLayer
     }
-//    private func setupRecordButton() {
-//        recordButton.backgroundColor = .red
-//        recordButton.addTarget(self, action: #selector(recordButtonTapped), for: .touchUpInside)
-//
-//        view.addSubview(recordButton)
-//
-//        recordButton.snp.makeConstraints { make in
-//            make.centerX.equalToSuperview()
-//            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottomMargin).offset(-16)
-//            make.width.height.equalTo(80)
-//        }
-//    }
-//    @objc private func recordButtonTapped() {
-//        if !isRecording {
-//            startRecording()
-//            isRecording = true
-//            recordButton.backgroundColor = .green
-//        } else {
-//            stopRecording()
-//            isRecording = false
-//            recordButton.backgroundColor = .red
-//        }
-//    }
+    @objc func toggleCamera() {
+        
+        // Toggle the camera position
+        currentCameraPosition = (currentCameraPosition == .front) ? .back : .front
+        
+        // Stop the capture session and remove the inputs
+        captureSession?.stopRunning()
+        for input in captureSession!.inputs {
+            captureSession?.removeInput(input)
+        }
+        
+        // Re-add the inputs for the new camera position
+        guard let captureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: currentCameraPosition) else { return }
+        guard let input = try? AVCaptureDeviceInput(device: captureDevice) else { return }
+        captureSession?.addInput(input)
+        
+        // Add audio input
+        addAudioInput()
+        // Restart the capture session
+        
+        DispatchQueue.global(qos: .background).async { [self] in
+            captureSession?.startRunning()
+        }
+
+    }
+
     func addAudioInput() {
         let audioSession = AVAudioSession.sharedInstance()
         do {
@@ -467,6 +447,8 @@ struct HostedViewController: UIViewControllerRepresentable {
         func updateUIViewController(_ uiViewController: CameraViewController, context: Context) {
             if cameraVM.capturePhoto {
                 uiViewController.captureImage()
-                    }
+            } else if cameraVM.toggleCamera {
+                uiViewController.toggleCamera()
+            }
         }
 }
