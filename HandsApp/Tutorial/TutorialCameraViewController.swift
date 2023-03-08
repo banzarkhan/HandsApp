@@ -140,7 +140,7 @@ extension TutorialCameraViewController: AVCaptureVideoDataOutputSampleBufferDele
                     case "peace":
                         if tutorialVM.gesture == "PeacePoseBlack" {
                             tutorialVM.gesture = "PeaceOk"
-                            tutorialVM.textGesture = "GOOD JOB"
+                            tutorialVM.textGesture = LocalizedStringKey("GOOD JOB")
                             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                                 self.tutorialVM.gesture = "FistPoseBlack"
                                 self.tutorialVM.textGesture = "STOP recording"
