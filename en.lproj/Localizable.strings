@@ -1,12 +1,5 @@
-/* 
-  Localizable.strings
-  HandsApp
-
-  Created by Ariuna Banzarkhanova on 08/03/23.
-  
-*/
 //TUTORIALCAMERAVIEWCONTROLLER
-"Gestures" = "Жесты"
+"Gestures" = "Gestures";
 "GOOD JOB" = "GOOD JOB";
 "STOP recording" = "STOP recording";
 "WELL DONE" = "WELL DONE";
