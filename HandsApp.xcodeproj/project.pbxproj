@@ -27,7 +27,6 @@
 		54C940C329AA36DF00AF67BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54C940C229AA36DF00AF67BC /* Assets.xcassets */; };
 		54C940C629AA36DF00AF67BC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54C940C529AA36DF00AF67BC /* Preview Assets.xcassets */; };
 		54CC499F29B7721E0008364A /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54CC499E29B7721E0008364A /* NavigationViewModel.swift */; };
-		54DA568829B8D1B200EE9602 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 54DA568A29B8D1B200EE9602 /* Localizable.strings */; };
 		54EC718A29B2064700168D8C /* HandPoseClassifier 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 54EC718929B2064700168D8C /* HandPoseClassifier 1.mlmodel */; };
 		54F3194C29B73A1700EE0A2B /* RefineModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F3194B29B73A1700EE0A2B /* RefineModalView.swift */; };
 		E5526B3029B8D92900C1ED35 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5526B3229B8D92900C1ED35 /* Localizable.strings */; };
@@ -55,8 +54,7 @@
 		54C940C229AA36DF00AF67BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54C940C529AA36DF00AF67BC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		54CC499E29B7721E0008364A /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
-		54DA568929B8D1B200EE9602 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		54DA568B29B8D1CC00EE9602 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		54E9170E29B8FDDD00951058 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		54EC718929B2064700168D8C /* HandPoseClassifier 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "HandPoseClassifier 1.mlmodel"; sourceTree = "<group>"; };
 		54F3194B29B73A1700EE0A2B /* RefineModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefineModalView.swift; sourceTree = "<group>"; };
 		E5526B3129B8D92900C1ED35 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 		54C940B229AA36DE00AF67BC = {
 			isa = PBXGroup;
 			children = (
-				54DA568A29B8D1B200EE9602 /* Localizable.strings */,
 				54C940BD29AA36DE00AF67BC /* HandsApp */,
 				54C940BC29AA36DE00AF67BC /* Products */,
 			);
@@ -198,8 +195,8 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				ru,
 				it,
+				ru,
 			);
 			mainGroup = 54C940B229AA36DE00AF67BC;
 			packageReferences = (
@@ -233,7 +230,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				54EC718A29B2064700168D8C /* HandPoseClassifier 1.mlmodel in Sources */,
-				548DA07A29AFB1950091DD67 /* GesturesView.swift in Sources */,
 				544E4EA129B0E4FA0063EB35 /* GestureTutorial3.swift in Sources */,
 				544E4EA529B0E5DA0063EB35 /* OnboardingView.swift in Sources */,
 				544AF11129AF653D00757C7E /* ContentView.swift in Sources */,
@@ -263,7 +259,7 @@
 			children = (
 				E5526B3129B8D92900C1ED35 /* en */,
 				E5526B3329B8D93600C1ED35 /* it */,
-				54DA568B29B8D1CC00EE9602 /* ru */,
+				54E9170E29B8FDDD00951058 /* ru */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

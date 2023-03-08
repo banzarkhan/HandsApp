@@ -1,0 +1,47 @@
+/* 
+  Localizable.strings
+  HandsApp
+
+  Created by Ilaria Saulino on 08/03/23.
+  
+*/
+
+//TUTORIALCAMERAVIEWCONTROLLER
+"GOOD JOB" = "ХОРОШАЯ РАБОТА";
+"STOP recording" = "ОСТАНОВИТЬ запись";
+"WELL DONE" = "ЗАМЕЧАТЕЛЬНО";
+"Now TAKE A PICTURE" = "Теперь СДЕЛАТЬ ФОТО";
+"GREAT!" = "ОТЛИЧНО!";
+
+//TUTORIALCAMMERAVIEWMODEL
+"START recording" = "НАЧАТЬ запись видео";
+
+//TUTORIALMODALVIEW
+"Now you are ready!" = "Теперь ты готов!";
+"Start!" = "Поехали!";
+
+//GESTURETUTORIAL1
+"Show this gesture to the camera to" = "Покажи этот жест, чтобы";
+"START" = "НАЧАТЬ";
+"recording" = "запись";
+
+//GESTURETUTORIAL2
+"Show this gesture to the camera to" = "Покажи этот жест, чтобы";
+"STOP" = "ОСТАНОВИТЬ";
+"recording" = "запись";
+
+//GESTURETUTORIAL3
+"Show this gesture to the camera to" = "Покажи этот жест, чтобы";
+"TAKE A PICTURE" = "СДЕЛАТЬ ФОТО";
+
+//THUMPPAGEVIEW
+"TRY now!" = "Время ПОПРОБОВАТЬ тебе!";
+
+//CAMERAVIEWCONTROLLER
+"Video added to photos!" = "Видео добавлено в галерею!";
+
+//REFINEMODELVIEW
+"Gestures" = "Жесты";
+
+
+
