@@ -30,5 +30,6 @@ struct GestureTutorial1: View {
 struct GestureTutorial1_Previews: PreviewProvider {
     static var previews: some View {
         GestureTutorial1()
+//            .environment(\.locale, .init(identifier: "ru"))
     }
 }
