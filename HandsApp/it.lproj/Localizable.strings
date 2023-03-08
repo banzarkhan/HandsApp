@@ -7,34 +7,34 @@
 */
 //TUTORIALCAMERAVIEWCONTROLLER
 "GOOD JOB" = "BUON LAVORO!";
-"STOP recording" = "STOP registrazione";
+"STOP recording" = "INTERROMPI la registrazione";
 "WELL DONE" = "BEN FATTO";
 "Now TAKE A PICTURE" = "ora SCATTA UNA FOTO!";
 "GREAT!" = "FANTASTICO!";
 
 //TUTORIALCAMMERAVIEWMODEL
-"START recording" = "START registrazione";
+"START recording" = "INIZIA la registrazione";
 
 //TUTORIALMODALVIEW
 "Now you are ready!" = "Ora siamo pronti!";
 "Start!" = "Start!";
 
 //GESTURETUTORIAL1
-"Show this gesture to the camera to" = "Mostra questo gesto alla camera per";
-"START" = "START";
-"recording" = "registrazione";
+"Show this gesture to the camera to" = "Mostra questo gesto alla camera per ";
+"START" = "INIZIARE";
+"recording" = "la registrazione";
 
 //GESTURETUTORIAL2
 "Show this gesture to the camera to" = "Mostra questo gesto alla camera per";
-"STOP" = "STOP";
-"recording" = "registrazione";
+"STOP" = "INTERROMPERE";
+"recording" = "la registrazione";
 
 //GESTURETUTORIAL3
 "Show this gesture to the camera to" = "Mostra questo gesto alla camera per";
-"TAKE A PICTURE" = "SCATTA UNA FOTO";
+"TAKE A PICTURE" = "SCATTARE UNA FOTO";
 
 //THUMPPAGEVIEW
-"TRY now!" = "PROVA tu!";
+"TRY now!" = "PROVA!";
 
 //CAMERAVIEWCONTROLLER
 "Video added to photos!" = "Video salvato in galleria!";

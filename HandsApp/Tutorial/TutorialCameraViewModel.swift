@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 
 class TutorialCameraViewModel: ObservableObject {
-    @Published var gesture = "PeacePoseBlack"
-    @Published var textGesture = "START recording"
+    @Published var gesture: String = "PeacePoseBlack"
+    @Published var textGesture: LocalizedStringKey = "START recording"
 }
 
 
