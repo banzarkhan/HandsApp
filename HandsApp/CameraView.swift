@@ -28,6 +28,17 @@ struct CameraView: View {
             ZStack(alignment:.top){
                 HostedViewController(cameraVM: cameraVM)
                     .ignoresSafeArea()
+                    .overlay(alignment: .center) {
+                        if cameraVM.videoAdd {
+                            Text("Video added to photos!")
+                                .font(.title)
+                                .multilineTextAlignment(.center)
+                                .opacity(0.5)
+                                .padding()
+                                .background(.ultraThinMaterial)
+                                .cornerRadius(10)
+                        }
+                    }
                     .overlay(alignment: .top){
                         RoundedRectangle(cornerRadius: 0.1)
                             .ignoresSafeArea()

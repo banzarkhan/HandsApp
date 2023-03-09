@@ -47,19 +47,29 @@ class CameraViewController: UIViewController {
         return label
     }()
 
+    let cameraVM: CameraViewModel
     
-    let savedLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Video added to photos!"
-        label.numberOfLines = 2
-        label.font = UIFont.systemFont(ofSize: 37.5, weight: .regular)
-        label.textColor = UIColor.white
-        label.backgroundColor = UIColor.black
-        label.textAlignment = .center
-        label.alpha = 0.65
-        label.isHidden = true
-        return label
-    }()
+    init(cameraVM: CameraViewModel){
+        self.cameraVM = cameraVM
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+//    let savedLabel: UILabel = {
+//        let label = UILabel()
+//        label.text = "Video added to photos!"
+//        label.numberOfLines = 2
+//        label.font = UIFont.systemFont(ofSize: 37.5, weight: .regular)
+//        label.textColor = UIColor.white
+//        label.backgroundColor = UIColor.black
+//        label.textAlignment = .center
+//        label.alpha = 0.65
+//        label.isHidden = true
+//        return label
+//    }()
 
     
     var frameCounter = 0
@@ -284,12 +294,12 @@ class CameraViewController: UIViewController {
        if movieOutput.isRecording {
            movieOutput.stopRecording()
            stopTimer()
-           self.savedLabel.isHidden = false
-           self.savedTimer = Timer.scheduledTimer(withTimeInterval: 2.69 , repeats: false) { _ in
-               DispatchQueue.main.async {
-                   self.savedLabel.isHidden = true
-               }
-           }
+//           self.savedLabel.isHidden = false
+//           self.savedTimer = Timer.scheduledTimer(withTimeInterval: 2.69 , repeats: false) { _ in
+//               DispatchQueue.main.async {
+//                   self.savedLabel.isHidden = true
+//               }
+//           }
 
            audioPlayerStop?.play()
        }
@@ -418,8 +428,10 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                         if isTimerRunning == false, isRecording == true {
                             self.stopRecording()
                             self.isRecording = false
-                        
-                            
+                            cameraVM.videoAdd.toggle()
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                self.cameraVM.videoAdd = false
+                            }
                         }
                     default : break
                     }
@@ -475,7 +487,7 @@ struct HostedViewController: UIViewControllerRepresentable {
     @ObservedObject var cameraVM: CameraViewModel
     
     func makeUIViewController(context: Context) -> CameraViewController {
-        return CameraViewController()
+        return CameraViewController(cameraVM: cameraVM)
         }
 
         func updateUIViewController(_ uiViewController: CameraViewController, context: Context) {
