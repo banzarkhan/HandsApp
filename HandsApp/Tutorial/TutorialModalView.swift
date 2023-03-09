@@ -68,9 +68,3 @@ struct TutorialModalView: View {
     
     
 }
-
-//struct TutorialModalView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TutorialModalView()
-//    }
-//}

@@ -96,12 +96,7 @@ class CameraViewController: UIViewController {
             CameraViewController.recordLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -49),
             CameraViewController.recordLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
-        view.addSubview(savedLabel)
-        savedLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            savedLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            savedLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
+
         audioPlayer = loadAudioPlayer(for: "camera-shutter")
         audioPlayerVid = loadAudioPlayer(for: "beep-sound-8333")
         audioPlayerStop = loadAudioPlayer(for: "stop-13692")

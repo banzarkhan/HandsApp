@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ThumpPage: View {
     
-//    var navigationVM: NavigationViewModel
     @AppStorage("NeedsOnboarding") var needsOnboarding = true
     @AppStorage("NeedsTutorial") var needsTutorial = false
     
@@ -34,10 +33,6 @@ struct ThumpPage: View {
                 needsOnboarding = false
                 needsTutorial = true
                 dismiss()
-//                navigationVM.needOnboarding = true
-                //ThumpPage.userOnboarded = true
-               // print(UserDefaults.standard.bool(forKey:"userOnboarded"))
-                
             }, label: {
                 Text ("TRY now!")
                 
