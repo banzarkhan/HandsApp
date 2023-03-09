@@ -92,34 +92,37 @@ class CameraViewController: UIViewController {
             savedLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             savedLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
+        audioPlayer = loadAudioPlayer(for: "camera-shutter")
+        audioPlayerVid = loadAudioPlayer(for: "beep-sound-8333")
+        audioPlayerStop = loadAudioPlayer(for: "stop-13692")
 
 
-        if let sound = Bundle.main.path(forResource: "camera-shutter.mp3", ofType: "mp3") {
-            do {
-                audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound))
-            } catch {
-                print("Error loading sound file: \(error.localizedDescription)")
-            }
-            
-        }
-        
-        if let sound = Bundle.main.path(forResource: "beep.mp3", ofType: "mp3") {
-            do {
-                audioPlayerVid = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound))
-            } catch {
-                print("Error loading sound file: \(error.localizedDescription)")
-            }
-            
-        }
-
-        if let sound = Bundle.main.path(forResource: "stop.mp3", ofType: "mp3") {
-            do {
-                audioPlayerStop = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound))
-            } catch {
-                print("Error loading sound file: \(error.localizedDescription)")
-            }
-            
-        }
+//        if let sound = Bundle.main.path(forResource: "camera-shutter.mp3", ofType: "mp3") {
+//            do {
+//                audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound))
+//            } catch {
+//                print("Error loading sound file: \(error.localizedDescription)")
+//            }
+//
+//        }
+//
+//        if let sound = Bundle.main.path(forResource: "beep-sound-8333.mp3", ofType: "mp3") {
+//            do {
+//                audioPlayerVid = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound))
+//            } catch {
+//                print("Error loading sound file: \(error.localizedDescription)")
+//            }
+//
+//        }
+//
+//        if let sound = Bundle.main.path(forResource: "stop-13692.mp3", ofType: "mp3") {
+//            do {
+//                audioPlayerStop = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound))
+//            } catch {
+//                print("Error loading sound file: \(error.localizedDescription)")
+//            }
+//
+//        }
 
 
         handPoseRequest.maximumHandCount = 1
@@ -136,7 +139,18 @@ class CameraViewController: UIViewController {
         // Re-enable idle timer when the app goes into the background or is closed
         UIApplication.shared.isIdleTimerDisabled = false
     }
-    
+    func loadAudioPlayer(for file: String) -> AVAudioPlayer? {
+        if let sound = Bundle.main.path(forResource: file, ofType: "mp3") {
+            do {
+                let audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound))
+                return audioPlayer
+            } catch {
+                print("Error loading sound file: \(error.localizedDescription)")
+            }
+        }
+        return nil
+    }
+
 
     //  timer to start counting seconds and minutes when recording starts
     func startTimer() {
@@ -395,7 +409,6 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                         if isTimerRunning == false, isRecording == false {
                             runTimer(seconds: 3, completion: { [weak self] in
                                 guard let self else { return }
-                                
                                 print("pinched to start vid")
                                 self.startRecording()
                                 self.isRecording.toggle()
